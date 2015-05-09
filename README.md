@@ -1,3 +1,3 @@
 # Sawss
 
-Sawss makes design content aware.
+Sawss makes layout content aware.
