@@ -1,6 +1,7 @@
 .idea/workspace.xml
 
 node_modules
+.idea/
 dist
 .tmp
 bower_components
