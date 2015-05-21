@@ -1,0 +1,30 @@
+{
+  "name": "sawss",
+  "version": "0.1.0",
+    "dependencies": {
+    "normalize-css": "latest"
+    },
+  "homepage": "https://github.com/ionlyseespots/sawss",
+  "authors": [
+    "Ken Buras <@ionlyseespots>"
+  ],
+  "description": "Sawss is semantic aware style sheets",
+  "main": "dist/css/*",
+  "keywords": [
+    "html5",
+    "css3",
+    "flexbox",
+    "front-end",
+    "framework",
+    "layout",
+    "grid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "apple-touch-icon.png",
+    "less/**/*.css"
+  ]
+}
