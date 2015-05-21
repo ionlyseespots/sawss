@@ -194,13 +194,46 @@
 <main am-padding>
     <article>
         <aside>
-            aside
+            <h1>
+              Sawss Editor
+            </h1>
+            <p>
+                generated document outline
+            </p>
+            <p>
+                landmark regions
+            </p>
+            <p>
+                roles
+            </p>
+            <p>
+                blocks
+            </p>
+            <p>
+                portrait / landscape
+            </p>
+           <p>
+               resources
+           </p>
         </aside>
         <section>
+            <p style="margin: 0; padding: 0;">
+                <code>
+                    &lt;html&gt;
+                    &lt;head&gt;
+                    &lt;body&gt;
+                </code>
+            </p>
             <textarea id="editor" placeholder="HTML/CSS/JS" autofocus></textarea>
             <iframe id="preview"></iframe>
+            <p style="margin: 0; padding: 0;">
+                <code>
+                    &lt;/body&gt;
+                    &lt;/head&gt;
+                    &lt;/html&gt;
+                </code>
+            </p>
         </section>
-
     </article>
 </main>
 
@@ -208,10 +241,17 @@
 <footer style="height: 50px;">
     <a id="download" download="export.html"></a></footer>
 <script type="text/javascript">
+
+
     var editorPane = document.getElementById('editor'),
             previewPane = document.getElementById('preview'),
             downloadLink = document.getElementById('download'),
+            CSS = '<link rel="stylesheet" href="../dist/css/ambient.min.css">',
+            myContent = '<!DOCTYPE html>' + '<html><head><title>Rendered HTML from Pattern</title>' + CSS + '</head><body>',
+            endContent = '</body></html>',
             fileName = '';
+
+
 
     // Editor Interactions
     onload = editorPane.onkeyup = function() {
@@ -236,9 +276,9 @@
 
     // Editor Functions
     function refreshView() {
-        editorPane.style.height = (window.innerHeight - 250) + 'px';
-        previewPane.style.height = (window.innerHeight - 250) + 'px';
-        (previewPane.contentWindow.document).write(editorPane.value);
+        editorPane.style.height = (window.innerHeight - 300) + 'px';
+        previewPane.style.height = (window.innerHeight - 300) + 'px';
+        (previewPane.contentWindow.document).write(myContent + editorPane.value + endContent);
         (previewPane.contentWindow.document).close();
         editorPane.focus();
     }
