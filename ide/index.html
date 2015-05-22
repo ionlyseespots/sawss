@@ -9,6 +9,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Frankenstein">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, minimal-ui">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Ambient -->
     <link rel="stylesheet" href="../dist/css/ambient.min.css">
     <style type="text/css">
@@ -178,16 +180,19 @@
             }
         }
     </style>
+    <script src="http://ionlyseespots.github.io/ambient-IDE/js/HTMLOutliner.js"></script>
+    <script src="http://ionlyseespots.github.io/ambient-IDE/js/HTMLParser.js"></script>
+    <script src="http://ionlyseespots.github.io/ambient-IDE/js/frontend.js"></script>
 </head>
 <body>
-<header>
+<header am-padding>
     <h1>
-    Sawss<span id="filename"></span>
+    <i class="fa fa-file-code-o"></i> <span id="filename"></span>
     </h1>
 </header>
 <nav am-layout="right-align">
-    <button id="zen" onclick="swingPane('editor','preview')">code</button>
-    <button id="view" onclick="swingPane('preview','editor')">design</button>
+    <button id="zen" onclick="swingPane('editor','preview')">edit</button>
+    <button id="view" onclick="swingPane('preview','editor')">view</button>
     <button id="save" onclick="exportNote()">save</button>
     <button id="switch" onclick="switchNote()">load</button>
 </nav>
@@ -221,7 +226,8 @@
         <section>
             <p style="margin: 0; padding: 0;">
                 <code>
-                    &lt;html&gt;
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
                     &lt;head&gt;
                     &lt;body&gt;
                 </code>
@@ -236,6 +242,60 @@
                 </code>
             </p>
         </section>
+        <hr />
+        <section id="input" am-padding>
+            <h2>
+                HTML5
+            </h2>
+            <div class="am-text-r" am-margin="bottom">
+                <button onclick="outline();">Generate Outline</button>
+            </div>
+
+            <hr />
+
+            <textarea id="direct_input">
+                &lt;body&gt;
+                &lt;header&gt;
+                &lt;h1&gt;Whiskey&lt;/h1&gt;
+                &lt;p&gt;Whiskey is a spirit.&lt;/p&gt;
+                &lt;/header&gt;
+                &lt;main&gt;
+                &lt;article&gt;
+                &lt;h1&gt;Taste&lt;/h1&gt;
+                &lt;section&gt;
+                &lt;h1&gt;Smooth&lt;/h1&gt;
+                &lt;p&gt;It taste smooth.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section&gt;
+                &lt;h2&gt;Wicked&lt;/h2&gt;
+                &lt;p&gt;Red spirits are scarier than green ones.&lt;/p&gt;
+                &lt;blockquote cite="me"&gt;But green ones are more wicked!&lt;/blockquote&gt;
+                &lt;/section&gt;
+                &lt;/article&gt;
+                &lt;article&gt;
+                &lt;h1&gt;Color&lt;/h1&gt;
+                &lt;p&gt;Spirits come in various colors.&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;main&gt;
+                &lt;/body&gt;</textarea>
+            <input id="url_input" type="hidden" value=""/>
+            <input type="file" id="file_input"/>
+        </section>
+        <aside id="outline" am-padding>
+            <h2>
+                Outline Panel
+            </h2>
+            <div class="options" id="output_options">
+                <select id="numbering">
+                    <option value="0">None</option>
+                    <option value="1" selected="">Simple</option>
+                    <option value="2">Nested</option>
+                </select>
+                <input id="show_elements" type="checkbox"/><label for="show_elements">Elements</label>
+            </div>
+            <div id="output" data-numbering="1">
+            </div>
+        </aside>
     </article>
 </main>
 
@@ -249,7 +309,7 @@
             previewPane = document.getElementById('preview'),
             downloadLink = document.getElementById('download'),
             CSS = '<link rel="stylesheet" href="../dist/css/ambient.min.css">',
-            myContent = '<!DOCTYPE html>' + '<html><head><title>Sawss: body content</title>' + CSS,
+            myContent = '<!DOCTYPE html>' + '<html lang="en"><head><title>Sawss: body content</title>' + CSS,
             endContent = '</body></html>',
             fileName = '';
 
@@ -310,8 +370,8 @@
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
         downloadLink.setAttribute('download', fileName + '.html');
-        document.getElementById('filename').innerHTML = ': ' + fileName + '.html';
-        document.title = 'Sawss:' + fileName;
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        document.title = 'Sawss: ' + fileName;
         refreshView();
     };
     function swingPane(reveal, conceal) {
@@ -402,5 +462,7 @@
         theTarget.dispatchEvent(theEvent);
     };
 </script>
+
+<script src="http://ionlyseespots.github.io/ambient-IDE/js/options.js"></script>
 </body>
 </html>
