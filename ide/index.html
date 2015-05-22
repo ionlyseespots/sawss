@@ -198,16 +198,18 @@
               Sawss Editor
             </h1>
             <p>
-                generated document outline
+                generated <a href="http://ionlyseespots.github.io/ambient-IDE/">document outline</a>
             </p>
             <p>
-                landmark regions
+                landmark regions<br />
+                <small>high level position of content</small>
             </p>
             <p>
                 roles
             </p>
             <p>
-                blocks
+                blocks<br />
+                <small>low level positioning of content</small>
             </p>
             <p>
                 portrait / landscape
@@ -224,7 +226,7 @@
                     &lt;body&gt;
                 </code>
             </p>
-            <textarea id="editor" placeholder="HTML/CSS/JS" autofocus></textarea>
+            <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
             <p style="margin: 0; padding: 0;">
                 <code>
@@ -303,7 +305,7 @@
         }
     };
     function switchNote() {
-        fileName = prompt('Welcome to Frankenstein\n\nFrankenstein is a mobile-friendly Frankenstein for tinkering around with HTML, CSS, and JS in the browser. It can also be bookmarked for offline use.\n\nTo Use the Default Frankenstein:\nPress \'Enter\' or select \'Cancel\' to load the default Frankenstein\n\nTo Create a New Frankenstein:\nEnter the name of the new Frankenstein you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein below to wish to continue editing and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
+        fileName = prompt('Welcome to Sawss: Feed My Frankenstein\n\nFeed My Frankenstein is a layout editor for HTML5 with Ambient (in the browser). It can also be bookmarked for offline use.\n\nTo Use the Default Frankenstein:\nPress \'Enter\' or select \'Cancel\' to load the default Frankenstein\n\nTo Create a New Frankenstein:\nEnter the name of the new Frankenstein you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved (local storage) Frankenstein below to wish to continue editing and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
         if(fileName == null || fileName == '') { fileName = 'ambient'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
