@@ -366,8 +366,7 @@
             previewPane = document.getElementById('preview'),
             downloadLink = document.getElementById('download'),
             CSS = '<link rel="stylesheet" href="../dist/css/ambient.min.css">',
-            myContent = '<!DOCTYPE html>' + '<html lang="en"><head><title>Sawss: body content</title>' + CSS,
-            endContent = '</body></html>',
+            myContent = '<title>Sawss: body content</title>' + CSS,
             fileName = '';
 
 
@@ -397,7 +396,7 @@
     function refreshView() {
         editorPane.style.height = (window.innerHeight - 400) + 'px';
         previewPane.style.height = (window.innerHeight - 400) + 'px';
-        (previewPane.contentWindow.document).write(myContent + editorPane.value + endContent);
+        (previewPane.contentWindow.document).write(myContent + editorPane.value);
         outline();
         (previewPane.contentWindow.document).close();
         editorPane.focus();
