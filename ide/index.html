@@ -14,80 +14,30 @@
     <!-- Ambient -->
     <link rel="stylesheet" href="../dist/css/ambient.min.css">
     <style type="text/css">
-        /** {*/
-            /*box-sizing: border-box;*/
-        /*}*/
-        /*::selection {*/
-            /*background-color: #002b36;*/
-        /*}*/
         html {
-            /*margin: 0;*/
-            /*padding: 0;*/
-            /*width: 100%;*/
-            /*height: 100%;*/
-            /*font-weight: 300;*/
             font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'Helvetica Neue', 'Segoe UI', 'Myriad Pro', Helvetica, Myriad, Arial, sans-serif;
         }
         body {
-            /*margin: 0;*/
-            /*padding: 0;*/
-            /*width: 100%;*/
-            /*height: 100%;*/
             color: #bbb;
-            background: #3c3f41 !important;
-            /*background: #002b36;*/
-            /*position: relative;*/
+            background: #3C3F41 !important;
         }
         html {
             font-size: .85em; }
 
-        main {
-            background: #002b36;
-        }
         h1, h2, h3, h4, h5, h6 {
             color:#bbb;}
         header {
-            /*width: 100%;*/
-        /*height: 50px;*/
-            /*position: fixed;*/
-            /*top: 0;*/
-            /*left: 0;*/
             background: #3c3f41;
-            /*padding: 0 15px;*/
             box-shadow: rgba(0,0,0,.1) 0 1px 2px;
-            /*z-index: 250;*/
-            /*user-select: none;*/
         }
-        /*header #brand {*/
-            /*position: absolute;*/
-            /*top: 50%;*/
-            /*margin-top: -7pt;*/
-        /*}*/
-        /*header #brand strong {*/
-            /*font-weight: 500;*/
-        /*}*/
         nav, header, footer {
-            /*float: right;*/
             background: #3c3f41 !important;
-            /*position: relative;*/
         }
-        /*header nav:before {*/
-            /*content: '';*/
-            /*display: block;*/
-            /*width: 30px;*/
-            /*height: 50px;*/
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*left: -30px;*/
-            /*background: linear-gradient( to right, rgba(7,54,66,0) 0%, rgba(7,54,66,1) 100%);*/
-        /*}*/
-        nav button {
+        nav button, nav .button--upload {
             outline: none;
-            /*width: 40px;*/
-            height: 40px;
-            /*border-radius: 40px;*/
+            min-height: 40px;
             margin: 5px 0 !important;
-            padding: .25em 1em !important;
+            padding: 0 !important;
             border: 1px solid #586e75 !important;
             color: #586e75;
             cursor: pointer;
@@ -108,21 +58,11 @@
         nav  button + button {
             margin-left: 10px;
         }
-        /*section {*/
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*left: 0;*/
-            /*width: 100%;*/
-            /*height: 100%;*/
-            /*margin: 0;*/
-            /*padding: 50px 15px 30px 15px;*/
-            /*z-index: 100;*/
-        /*}*/
         #editor,
         #preview {
             width: 49.25%;
             /*float: left;*/
-            margin: 15px .75% 0 .75%;
+            margin: 0 .75% 0 .75%;
             border-radius: 2px;
             transition: all .2s ease-in-out;
             -webkit-appearance: none;
@@ -161,14 +101,6 @@
         }
         footer {
             background: #073642;
-            /*width: 100%;*/
-            /*height: 30px;*/
-            /*line-height: 30px;*/
-            /*padding: 0 5px;*/
-            /*position: fixed;*/
-            /*bottom: 0;*/
-            /*left: 0;*/
-            /*z-index: 250;*/
             box-shadow: rgba(0,0,0,.1) 0 -1px 2px;
         }
         footer .download {
@@ -248,6 +180,26 @@
         #output.show_elements span.details {
             display: inline;
         }
+
+
+
+
+        .button--upload {
+
+            flex: 0 1 8.3333%;
+            position: relative;
+        }
+        .button--upload__file {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            visibility: hidden;
+            width: 0;
+        }
+
     </style>
     <script src="../assets/js/HTMLOutliner.js"></script>
     <script src="../assets/js/HTMLParser.js"></script>
@@ -264,19 +216,27 @@
     <button id="view" onclick="swingPane('preview','editor')">view</button>
     <button id="save" onclick="exportNote()">save</button>
     <button id="switch" onclick="switchNote()">load</button>
+    <!--<input type="file" id="file_input"/>-->
+    <span class="button--upload">
+        <label for="file_input" class="button--upload__label" style=" font-size: 14px;
+    font-weight: 400;   text-align: center;        bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;">browse</label>
+        <input type="file" id="file_input" name="upload-file" class="button--upload__file">
+    </span>
 </nav>
 <main>
     <article>
-        <aside style="background-color: #3c3f41;">
+        <aside style="background-color: #3c3f41;" am-padding="left">
             <h1>
-             Layout Editor
+             HTML5 Layout Editor
             </h1>
 
             <!--<button onclick="outline();">Generate Outline</button>-->
             <div class="options" id="output_options">
-                <p>
-                    Doument outline
-                </p>
                 <select id="numbering">
                     <option value="0">None</option>
                     <option value="1" selected="">Simple</option>
@@ -284,55 +244,56 @@
                 </select>
                 <input id="show_elements" type="checkbox"/><label for="show_elements">Elements</label>
             </div>
+            <p style="margin: 10px 0 0;">
+                Document Outline
+            </p>
             <div id="output" data-numbering="1">
             </div>
             <p>
-                scaffolding: landmark regions<br />
-                <small>high level positioning of content</small>
+                WAI-ARIA landmark roles<br />
+                <small>Scaffolding: high level positioning of content</small>
+            </p>
+            <ul>
+                <li>Banner</li>
+                <li>Navigation</li>
+                <li>Article</li>
+                <li>Region</li>
+                <li>Complementary</li>
+                <li>Content Info</li>
+                <li>Search</li>
+                <li>Form</li>
+            </ul>
+            <p>
+                Blocks<br />
+                <small>Grid: low level positioning of content</small>
             </p>
             <p>
-                design patterns: roles
+                WAI-ARIA widget roles<br />
+                <small>design patterns: templating of content</small>
             </p>
             <p>
-                blocks<br />
-                <small>low level positioning of content</small>
-            </p>
-            <p>
-                portrait / landscape
+                View: portrait / landscape
             </p>
            <p>
-               resources
+               Resources
            </p>
         </aside>
-        <section style="background-color: #313335;">
-            <p style="margin: 0; padding: 0;">
-                <code>
-                    &lt;!DOCTYPE html&gt;
-                    &lt;html lang="en"&gt;
-                    &lt;head&gt;
-                    &lt;body&gt;
-                </code>
-            </p>
+        <section style="background-color: #313335;" am-padding>
             <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
-            <p style="margin: 0; padding: 0;">
-                <code>
-                    &lt;/body&gt;
-                    &lt;/head&gt;
-                    &lt;/html&gt;
-                </code>
-            </p>
-
             <input id="url_input" type="hidden" value=""/>
-            <input type="file" id="file_input"/>
-            <button type="button" id="file_input2" onclick="template()"/>Design Pattern 1</button>
+            <footer am-margin="top" am-padding>
+                <button type="button" id="file_input2" onclick="template()"/>Design Pattern 1</button>
+            </footer>
         </section>
+
     </article>
 </main>
 
 
 <footer style="height: 50px;">
     <a id="download" download="export.html"></a></footer>
+
 <script type="text/javascript">
     // document outliner options
     var input = document.getElementById("editor");
@@ -413,8 +374,8 @@
 
     // Editor Functions
     function refreshView() {
-        editorPane.style.height = (window.innerHeight - 400) + 'px';
-        previewPane.style.height = (window.innerHeight - 400) + 'px';
+        editorPane.style.height = (window.innerHeight - 250) + 'px';
+        previewPane.style.height = (window.innerHeight - 250) + 'px';
         (previewPane.contentWindow.document).write(myContent + editorPane.value);
         outline();
         (previewPane.contentWindow.document).close();
@@ -464,8 +425,11 @@
     };
     function exportNote() {
         downloadLink.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(editorPane.value);
+        downloadLink.setAttribute('download', fileName + '.html');
         downloadLink.click();
     };
+
+    // http://ariatemplates.com/blog/2014/05/ghost-clicks-in-mobile-browsers/
 
     // tapZap eliminates the 300ms standard delay added afer `touchstart` for mobile users, for quicker user interactions
     function tapZap(element, handler) {
