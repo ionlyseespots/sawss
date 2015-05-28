@@ -416,7 +416,7 @@
         }
     };
     function switchNote() {
-        fileName = prompt('Welcome to Sawss\n\nFeed My Frankenstein:  Design and edit layouts for Sawss (in the browser). It can also be bookmarked for offline use.\n\nTo Use the Default Frankenstein (layout.html):\nPress \'Enter\' or select \'Cancel\' to load the default Frankenstein\n\nTo Create a New Frankenstein:\nEnter the name of the new Frankenstein you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved (local storage) Frankenstein below to wish to continue editing and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
+        fileName = prompt('Welcome to Sawss\n\nFeed My Frankenstein:  Design and edit layouts for HTML5 with Sawss (in the browser). It can also be bookmarked for offline use.\n\nTo load the Default Frankenstein:\nPress \'Enter\' or select \'Cancel\' to load the default Frankenstein (layout.html)\n\nTo Create a New Frankenstein:\nEnter the name you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein (local storage) below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
         if(fileName == null || fileName == '') { fileName = 'layout'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
