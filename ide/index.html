@@ -293,7 +293,7 @@
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
             <footer am-margin="top" am-padding>
-                <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Design Pattern 1</button>
+                <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Holy Grail</button>
             </footer>
         </section>
 
@@ -346,7 +346,7 @@
 
     function template() {
 
-        var doctors = '<h1>test</h1>\n<h2>sub heading</h2>\n<nav am-layout="horizontal">\n<a href>nav link</a><a href>nav link</a>\n</nav>';
+        var doctors = '<header role="banner">\n<h1>Header</h1></header>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<main role="main">\n<h1>Hello, world!</h1></main>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<footer role="contentinfo">\n<h1>Footer</h1></footer>';
         localStorage.designPattern1 = doctors;
 
 
