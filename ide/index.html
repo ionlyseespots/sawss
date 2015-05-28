@@ -345,13 +345,12 @@
             previewPane = document.getElementById('preview'),
             downloadLink = document.getElementById('download'),
             CSS = '<link rel="stylesheet" href="../dist/css/ambient.min.css">',
-            myContent = '<title>Sawss: body content</title>' + CSS,
             fileName = '';
 
 
     function template() {
 
-        var doctors = '<header role="banner">\n<h1>Header</h1></header>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<main role="main">\n<h1>Hello, world!</h1></main>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<footer role="contentinfo">\n<h1>Footer</h1></footer>';
+        var doctors = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
         localStorage.holyGrail = doctors;
 
 
@@ -391,7 +390,7 @@
     function refreshView() {
         editorPane.style.height = (window.innerHeight - 250) + 'px';
         previewPane.style.height = (window.innerHeight - 250) + 'px';
-        (previewPane.contentWindow.document).write(myContent + editorPane.value);
+        (previewPane.contentWindow.document).write(CSS + '\n' + editorPane.value);
         outline();
         (previewPane.contentWindow.document).close();
         editorPane.focus();
