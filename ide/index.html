@@ -352,12 +352,12 @@
     function template() {
 
         var doctors = '<header role="banner">\n<h1>Header</h1></header>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<main role="main">\n<h1>Hello, world!</h1></main>\n<aside role="complementary">\n<h1>Aside</h1></aside>\n<footer role="contentinfo">\n<h1>Footer</h1></footer>';
-        localStorage.designPattern1 = doctors;
+        localStorage.holyGrail = doctors;
 
 
 // later that evening…
 
-        fileName = 'designPattern1';
+        fileName = 'holyGrail';
         if(fileName == null || fileName == '') { fileName = 'layout'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
