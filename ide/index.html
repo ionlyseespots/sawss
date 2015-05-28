@@ -37,7 +37,7 @@
             outline: none;
             text-align: center;
             align-self: center;
-            min-height: 40px;
+            min-height: 20px;
             margin: 5px 0 !important;
             padding: 0 !important;
             border: 1px solid #586e75 !important;
@@ -227,12 +227,7 @@
     <!--<input type="file" id="file_input"/>-->
     <div class="button--upload">
         <label for="file_input" class="button--upload__label" style=" font-size: 14px;
-    font-weight: 400;   text-align: center;        padding: .5em;bottom: 0;
-
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;">import</label>
+    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
         <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
     </div>
     <button onclick="localStorage.clear()">clear</button>
@@ -245,19 +240,28 @@
             </h1>
 
             <!--<button onclick="outline();">Generate Outline</button>-->
-            <div class="options" id="output_options">
-                <select id="numbering">
-                    <option value="0">None</option>
-                    <option value="1" selected="">Simple</option>
-                    <option value="2">Nested</option>
-                </select>
-                <input id="show_elements" type="checkbox"/><label for="show_elements">Elements</label>
-            </div>
-            <p style="margin: 10px 0 0;">
-                HTML5 Document Outline
-            </p>
-            <div id="output" data-numbering="1">
-            </div>
+
+                <p>
+                    HTML5 Document Outline
+                </p>
+                <div class="options" id="output_options" am-padding="right">
+                    <select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">
+                        <option value="0">None</option>
+                        <option value="1" selected="">simple</option>
+                        <option value="2">complex</option>
+                    </select>
+
+                <div class="sawss-btn" style="padding: 0;">
+                     <input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;"> <i class="fa fa-eye" style="margin: 0; padding: 0;width: 100%;"></i></label>
+                </div>
+
+                </div>
+
+                <div id="output" data-numbering="1">
+                </div>
+
+            <hr />
+
             <p>
                 WAI-ARIA landmark roles<br />
                 <small>Scaffolding: high level positioning of content</small>
