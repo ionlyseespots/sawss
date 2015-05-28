@@ -33,8 +33,10 @@
         nav, header, footer {
             background: #3c3f41 !important;
         }
-        nav button, nav .button--upload {
+        nav button, nav .button--upload, .sawss-btn {
             outline: none;
+            text-align: center;
+            align-self: center;
             min-height: 40px;
             margin: 5px 0 !important;
             padding: 0 !important;
@@ -47,9 +49,15 @@
             box-shadow: #002b36 0 1px 2px;
         }
         nav  button:focus,
-        nav  button:hover {
+        nav  button:hover,
+        nav .button--upload:hover,
+        .sawss-btn
+        {
             border-color: #839496;
             color: #839496;
+        }
+        .sawss-btn {
+            padding: 0 1em !important;
         }
         nav  button:active {
             border-color: #93a1a1;
@@ -219,7 +227,7 @@
     <!--<input type="file" id="file_input"/>-->
     <div class="button--upload">
         <label for="file_input" class="button--upload__label" style=" font-size: 14px;
-    font-weight: 400;   text-align: center;        bottom: 0;
+    font-weight: 400;   text-align: center;        padding: .5em;bottom: 0;
 
             left: 0;
             position: absolute;
@@ -227,6 +235,7 @@
             top: 0;">import</label>
         <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
     </div>
+    <button onclick="localStorage.clear()">clear</button>
 </nav>
 <main>
     <article>
@@ -284,7 +293,7 @@
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
             <footer am-margin="top" am-padding>
-                <button type="button" id="file_input2" onclick="template()"/>Design Pattern 1</button>
+                <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Design Pattern 1</button>
             </footer>
         </section>
 
