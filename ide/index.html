@@ -324,7 +324,7 @@
                 <button type="button" class="sawss-btn" onclick="region()">Region</button>
                 <button type="button" class="sawss-btn" onclick="complementary()">Complementary</button>
                 <button type="button" class="sawss-btn" onclick="contentInfo()">Contentinfo</button>
-                <button type="button" class="sawss-btn" onclick="search()">Search</button>
+                <!--<button type="button" class="sawss-btn" onclick="search()">Search</button>-->
                 <!--<button type="button" class="sawss-btn" onclick="form()">Form</button>-->
 </nav>
             <p>
@@ -335,6 +335,10 @@
                 WAI-ARIA widget roles<br />
                 <small>Design patterns: templating of content</small>
             </p>
+            <nav am-layout="horizontal">
+            <button type="button" class="sawss-btn">Dropdown</button>
+            <button type="button" class="sawss-btn">Tab</button>
+            </nav>
             <p>
                 Orientation: portrait / landscape
             </p>
@@ -475,7 +479,7 @@ if (localStorage) {
 
 function banner() {
 
-    var banner = '<header role="banner">\n\t<h1>Header</h1>\n</header>';
+    var banner = '<header role="banner">\n\t<h1>Banner</h1>\n</header>';
     localStorage.banner = banner;
 
 
@@ -490,7 +494,7 @@ function banner() {
 }
 function navigation() {
 
-    var navigation = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    var navigation = '<nav role="navigation">\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n</nav>';
     localStorage.navigation = navigation;
 
 
@@ -506,7 +510,7 @@ function navigation() {
 
 function article() {
 
-    var article = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    var article = '<article>\n\t<h1>Article</h1>\n</article>';
     localStorage.article = article;
 
 
@@ -521,7 +525,7 @@ function article() {
 }
 function region() {
 
-    var region = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    var region = '<section role="region">\n\t<h1>Header</h1>\n</section>';
     localStorage.region = region;
 
 
@@ -536,8 +540,8 @@ function region() {
 }
 function complementary() {
 
-    var complementary = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
-    localStorage.complentary = complementary;
+    var complementary = '<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>';
+    localStorage.complementary = complementary;
 
 
 // later that evening…
@@ -551,13 +555,13 @@ function complementary() {
 }
 function contentInfo() {
 
-    var contentInfo = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    var contentInfo = '<footer role="contentinfo">\n\t<h1>Footer</h1>>\n</footer>';
     localStorage.contentinfo = contentInfo;
 
 
 // later that evening…
 
-    fileName = 'contentInfo';
+    fileName = 'contentinfo';
     if(fileName == null || fileName == '') { fileName = 'contentInfo'; editorPane.value = localStorage[fileName] }
     if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
     if(editorPane.value == 'undefined'){ editorPane.value = ''; }
@@ -566,7 +570,7 @@ function contentInfo() {
 }
 function search() {
 
-    var search = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    var search = 'under construction';
     localStorage.search = search;
 
 
