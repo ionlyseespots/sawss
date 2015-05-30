@@ -287,13 +287,13 @@
     <article>
         <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="left">
             <h1>
-             <i class="fa fa-file-code-o"></i> <span id="filename"></span>
+             <i class="fa fa-file"></i> HTML5
             </h1>
 
             <!--<button onclick="outline();">Generate Outline</button>-->
 
                 <p style="margin: 0;">
-                    HTML5 Document Outline
+                    Document Outline
                 </p>
                 <!--<div class="options" id="output_options" am-padding="right">-->
                     <!--<select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">-->
@@ -370,14 +370,17 @@
 
 
         <section style="background-color: #313335;" am-padding am-margin="top large">
+            <Header am-padding>
+                <h1><i class="fa fa-file-code-o"></i> <span id="filename"></span></h1>
+
+                    <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+
+            </header>
             <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
             <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="position: absolute; right: 0; top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
           <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
-            <footer am-margin="top" am-padding>
-                <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Holy Grail</button>
-            </footer>
         </section>
         <script>
             function DragNSort(config) {
@@ -729,8 +732,8 @@ function form() {
         }
     };
     function switchNote() {
-        fileName = prompt('Feed My Frankenstein. Design and edit layouts for HTML5 with Sawss.\n\nTo load the Default (empty) Frankenstein:\nPress \'Enter\' or select \'Cancel\'\n\nTo Create a New Frankenstein:\nEnter the name you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
-        if(fileName == null || fileName == '') { fileName = 'layout'; editorPane.value = localStorage[fileName] }
+        fileName = prompt('Feed My Frankenstein.\n\nTo begin a Frankenstein:\nPress \'Enter\' or select \'Cancel\'\n\nTo Create a New Frankenstein:\nEnter the name of your Frankenstein and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
+        if(fileName == null || fileName == '') { fileName = 'Frankenstein'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
         downloadLink.setAttribute('download', fileName + '.html');
