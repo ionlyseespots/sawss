@@ -56,7 +56,7 @@ function processInput(source) {
 
 function getBody(node) {
 	if(node.nodeType === 9) {
-		var body = node.getElementsByTagName("body")[0];
+		var body = text
 		if(body === undefined) {
 			body = node.createElement("body");
 			while(node.childNodes.length > 0) {

@@ -9,10 +9,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Frankenstein">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, minimal-ui">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Ambient -->
     <link rel="stylesheet" href="../dist/css/ambient.min.css">
@@ -94,7 +90,9 @@
             height: auto;
             box-shadow: rgba(0,0,0,.1) 0 1px 2px;
             margin-left: 0;
+            resize: none;
         }
+
         #preview {
             background: #fff;
             opacity: 0.3;
@@ -263,13 +261,16 @@
 <body>
 <header>
     <h1>
-    <i class="fa fa-file-code-o"></i> <span id="filename"></span>
+        Layout Editor
     </h1>
+    <p>
+         Semantic Aware Style Sheets (sawss)
+    </p>
 </header>
-<nav am-layout="right-align">
-    <button id="zen" onclick="swingPane('editor','preview')">edit</button>
-    <button id="view" onclick="swingPane('preview','editor')">view</button>
-    <button id="save" onclick="exportNote()">save</button>
+<main>
+    <nav am-layout="right-align">
+    <!--<button id="zen" onclick="swingPane('editor','preview')">edit</button>-->
+    <!--<button id="view" onclick="swingPane('preview','editor')">view</button>-->
     <button id="switch" onclick="switchNote()">load</button>
     <!--<input type="file" id="file_input"/>-->
     <div class="button--upload">
@@ -277,32 +278,35 @@
     font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
         <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
     </div>
+        <button id="save" onclick="exportNote()">export</button>
     <button onclick="localStorage.clear()">clear</button>
+    <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
-<main>
+    <hr />
+
     <article>
-        <aside style="background-color: #3c3f41;" am-padding="left">
+        <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="left">
             <h1>
-             Sawss Editor
+             <i class="fa fa-file-code-o"></i> <span id="filename"></span>
             </h1>
 
             <!--<button onclick="outline();">Generate Outline</button>-->
 
-                <p>
+                <p style="margin: 0;">
                     HTML5 Document Outline
                 </p>
-                <div class="options" id="output_options" am-padding="right">
-                    <select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">
-                        <option value="0">None</option>
-                        <option value="1" selected="">simple</option>
-                        <option value="2">complex</option>
-                    </select>
+                <!--<div class="options" id="output_options" am-padding="right">-->
+                    <!--<select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">-->
+                        <!--<option value="0">None</option>-->
+                        <!--<option value="1" selected="">simple</option>-->
+                        <!--<option value="2">complex</option>-->
+                    <!--</select>-->
 
-                <div class="sawss-btn" style="padding: 0;">
-                     <input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;"> <i class="fa fa-eye" style="margin: 0; padding: 0;width: 100%;"></i></label>
-                </div>
+                <!--&lt;!&ndash;<div class="sawss-btn" style="padding: 0;">&ndash;&gt;-->
+                     <!--&lt;!&ndash;<input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;">elements</label>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                </div>
+                <!--</div>-->
 
                 <div id="output" data-numbering="1">
                 </div>
@@ -313,16 +317,16 @@
                 WAI-ARIA landmark roles<br />
                 <small>Scaffolding: high level positioning of content</small>
             </p>
-            <ul>
-                <li>Banner</li>
-                <li>Navigation</li>
-                <li>Article</li>
-                <li>Region</li>
-                <li>Complementary</li>
-                <li>Content Info</li>
-                <li>Search</li>
-                <li>Form</li>
-            </ul>
+<nav am-layout="horizontal">
+                <button type="button" class="sawss-btn" onclick="banner()">Banner</button>
+                <button type="button" class="sawss-btn" onclick="navigation()">Navigation</button>
+                <button type="button" class="sawss-btn" onclick="article()">Article</button>
+                <button type="button" class="sawss-btn" onclick="region()">Region</button>
+                <button type="button" class="sawss-btn" onclick="complementary()">Complementary</button>
+                <button type="button" class="sawss-btn" onclick="contentInfo()">Contentinfo</button>
+                <button type="button" class="sawss-btn" onclick="search()">Search</button>
+                <!--<button type="button" class="sawss-btn" onclick="form()">Form</button>-->
+</nav>
             <p>
                 Grid<br />
                 <small>Blocks: low level positioning of content</small>
@@ -338,10 +342,13 @@
                Resources
            </p>
 
-            Here is the element's original content
+            <h2>The oncoming storm</h2>
                 <div id="edit" class="drag-list">
-                    <h1 contenteditable="true">Heading</h1>
-                    <h2 contenteditable="true">Subheading</h2>
+                    <h1 contenteditable="true">Editable Heading</h1>
+                    <h2 contenteditable="true">Editable Subheading</h2>
+                    <p>
+                        Drag and drop the following blocks
+                    </p>
                     <div draggable="true" class="drag-item">A</div>
                     <div draggable="true" class="drag-item">B</div>
                     <div draggable="true" class="drag-item">C</div>
@@ -362,10 +369,11 @@
 
 
 
-        <section style="background-color: #313335;" am-padding>
-
-            <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
-            <iframe id="preview" contenteditable="true"></iframe>
+        <section style="background-color: #313335;" am-padding am-margin="top large">
+            <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
+            <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="position: absolute; right: 0; top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
+          <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
+            <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
             <footer am-margin="top" am-padding>
                 <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Holy Grail</button>
@@ -453,41 +461,174 @@
     <a id="download" download="export.html"></a></footer>
 
 <script type="text/javascript">
+
+
+
 if (localStorage) {
     // LocalStorage is supported!
 } else {
     // No support. Use a fallback such as browser cookies or store on the server.
 }
 
-    // document outliner options
-    var input = document.getElementById("editor");
-    var output = document.getElementById("output");
+function banner() {
 
-    if(window.FileReader) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            input.value = reader.result;
-        };
-        document.getElementById("file_input").addEventListener("change", function(event) {
-            reader.readAsText(event.target.files[0]);
-        }, false);
-    } else {
-        document.getElementById("file_input").disabled = true;
-    }
+    var banner = '<header role="banner">\n\t<h1>Header</h1>\n</header>';
+    localStorage.banner = banner;
 
-    document.getElementById("output_options").addEventListener("change", function(event) {
-        switch(event.target.id) {
-            case "show_elements":
-                output.classList.toggle("show_elements");
-                break;
-            case "show_roots":
-                output.classList.toggle("show_roots");
-                break;
-            case "numbering":
-                output.setAttribute("data-numbering", event.target.value);
-                break;
-        }
-    }, false);
+
+// later that evening…
+
+    fileName = 'banner';
+    if(fileName == null || fileName == '') { fileName = 'banner'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function navigation() {
+
+    var navigation = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.navigation = navigation;
+
+
+// later that evening…
+
+    fileName = 'navigation';
+    if(fileName == null || fileName == '') { fileName = 'navigation'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+
+function article() {
+
+    var article = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.article = article;
+
+
+// later that evening…
+
+    fileName = 'article';
+    if(fileName == null || fileName == '') { fileName = 'article'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function region() {
+
+    var region = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.region = region;
+
+
+// later that evening…
+
+    fileName = 'region';
+    if(fileName == null || fileName == '') { fileName = 'region'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function complementary() {
+
+    var complementary = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.complentary = complementary;
+
+
+// later that evening…
+
+    fileName = 'complementary';
+    if(fileName == null || fileName == '') { fileName = 'complementary'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function contentInfo() {
+
+    var contentInfo = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.contentinfo = contentInfo;
+
+
+// later that evening…
+
+    fileName = 'contentInfo';
+    if(fileName == null || fileName == '') { fileName = 'contentInfo'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function search() {
+
+    var search = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.search = search;
+
+
+// later that evening…
+
+    fileName = 'search';
+    if(fileName == null || fileName == '') { fileName = 'search'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+function form() {
+
+    var form = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+    localStorage.form = form;
+
+
+// later that evening…
+
+    fileName = 'form';
+    if(fileName == null || fileName == '') { fileName = 'form'; editorPane.value = localStorage[fileName] }
+    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+    document.getElementById('filename').innerHTML = fileName + '.html';
+    refreshView();
+}
+
+
+
+
+
+
+
+
+
+//    // document outliner options
+//    var input = document.getElementById("editor");
+//    var output = document.getElementById("output");
+//
+//    if(window.FileReader) {
+//        var reader = new FileReader();
+//        reader.onload = function() {
+//            input.value = reader.result;
+//        };
+//        document.getElementById("file_input").addEventListener("change", function(event) {
+//            reader.readAsText(event.target.files[0]);
+//        }, false);
+//    } else {
+//        document.getElementById("file_input").disabled = true;
+//    }
+//
+//    document.getElementById("output_options").addEventListener("change", function(event) {
+//        switch(event.target.id) {
+//            case "show_elements":
+//                output.classList.toggle("show_elements");
+//                break;
+//            case "show_roots":
+//                output.classList.toggle("show_roots");
+//                break;
+//            case "numbering":
+//                output.setAttribute("data-numbering", event.target.value);
+//                break;
+//        }
+//    }, false);
 
 
     var editorPane = document.getElementById('editor'),
@@ -529,7 +670,7 @@ if (localStorage) {
 // later that evening…
 
         fileName = 'holyGrail';
-        if(fileName == null || fileName == '') { fileName = 'layout'; editorPane.value = localStorage[fileName] }
+        if(fileName == null || fileName == '') { fileName = 'holyGrail'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
         document.getElementById('filename').innerHTML = fileName + '.html';
@@ -588,7 +729,7 @@ if (localStorage) {
         }
     };
     function switchNote() {
-        fileName = prompt('Welcome to Sawss\n\nFeed My Frankenstein:  Design and edit layouts for HTML5 with Sawss (in the browser). It can also be bookmarked for offline use.\n\nTo load the Default Frankenstein:\nPress \'Enter\' or select \'Cancel\' to load the default Frankenstein (layout.html)\n\nTo Create a New Frankenstein:\nEnter the name you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein (local storage) below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
+        fileName = prompt('Feed My Frankenstein. Design and edit layouts for HTML5 with Sawss.\n\nTo load the Default (empty) Frankenstein:\nPress \'Enter\' or select \'Cancel\'\n\nTo Create a New Frankenstein:\nEnter the name you wish to create and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
         if(fileName == null || fileName == '') { fileName = 'layout'; editorPane.value = localStorage[fileName] }
         if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
         if(editorPane.value == 'undefined'){ editorPane.value = ''; }
