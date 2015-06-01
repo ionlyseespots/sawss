@@ -16,7 +16,9 @@
     <!-- Medium Editor -->
     <link rel="stylesheet" href="../assets/css/themes/default.css" id="medium-editor-theme">
     <link rel="stylesheet" href="../assets/css/medium-editor.css">
+    <link rel="stylesheet" href="../assets/css/medium-editor-tables.css" />
     <script src="../assets/js/medium-editor.js"></script>
+    <script src="../assets/js/medium-editor-tables.js"></script>
 
     <style type="text/css">
         html {
@@ -491,8 +493,17 @@
 
 <script type="text/javascript">
 
-var editor = new MediumEditor('.editable');
-
+//var editor = new MediumEditor('.editable');
+var editor = new MediumEditor('.editable', {
+    buttonLabels: 'fontawesome',
+    buttons: [
+        'bold', 'italic', 'underline', 'anchor', 'header1', 'header2',
+        'table'
+    ],
+    extensions: {
+        'table': new MediumEditorTable()
+    }
+});
 
 
 if (localStorage) {
