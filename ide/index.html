@@ -12,6 +12,12 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Ambient -->
     <link rel="stylesheet" href="../dist/css/ambient.min.css">
+
+    <!-- Medium Editor -->
+    <link rel="stylesheet" href="../assets/css/themes/default.css" id="medium-editor-theme">
+    <link rel="stylesheet" href="../assets/css/medium-editor.css">
+    <script src="../assets/js/medium-editor.js"></script>
+
     <style type="text/css">
         html {
             font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'Helvetica Neue', 'Segoe UI', 'Myriad Pro', Helvetica, Myriad, Arial, sans-serif;
@@ -252,7 +258,9 @@
             -ms-transform: scale(0.9);
             transform: scale(0.9);
         }
-
+       .medium-editor-toolbar,  .medium-editor-toolbar-actions  {
+    width: auto;
+}
     </style>
     <script src="../assets/js/HTMLOutliner.js"></script>
     <script src="../assets/js/HTMLParser.js"></script>
@@ -345,14 +353,18 @@
            <p>
                Resources
            </p>
-
-            <h2>The oncoming storm</h2>
+            <div id="container">
+                <h2>The oncoming storm</h2>
                 <div id="edit" class="drag-list">
-                    <h1 contenteditable="true">Editable Heading</h1>
-                    <h2 contenteditable="true">Editable Subheading</h2>
-                    <p>
-                        Drag and drop the following blocks
-                    </p>
+                    <div class="editable" contenteditable="true">
+                        <h1>Editable Heading</h1>
+                        <h2>Editable Subheading</h2>
+                        <p> Highlight text to reveal contextual menu for editing.</p>
+                        <p>
+                            Drag and drop the following blocks to reposition content.
+                        </p>
+                    </div>
+
                     <div draggable="true" class="drag-item">A</div>
                     <div draggable="true" class="drag-item">B</div>
                     <div draggable="true" class="drag-item">C</div>
@@ -367,8 +379,12 @@
                     <div draggable="true" class="drag-item">L</div>
                 </div>
 
-            <div id="update"></div>
-            <input type="button" value="save my edits" class="sawss-btn" onclick="saveEdits()"/>
+                <div id="update"></div>
+                <input type="button" value="save my edits" class="sawss-btn" onclick="saveEdits()"/>
+
+            </div>
+
+
         </aside>
 
 
@@ -461,6 +477,12 @@
 
         </script>
     </article>
+
+
+
+
+
+
 </main>
 
 
@@ -468,6 +490,8 @@
     <a id="download" download="export.html"></a></footer>
 
 <script type="text/javascript">
+
+var editor = new MediumEditor('.editable');
 
 
 
