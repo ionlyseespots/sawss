@@ -377,7 +377,7 @@
             <Header am-padding>
                 <h1><i class="fa fa-file-code-o"></i> <span id="filename"></span></h1>
 
-                    <button type="button" id="file_input2" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+                    <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
 
             </header>
             <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
@@ -555,7 +555,7 @@ function complementary() {
 }
 function contentInfo() {
 
-    var contentInfo = '<footer role="contentinfo">\n\t<h1>Footer</h1>>\n</footer>';
+    var contentInfo = '<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
     localStorage.contentinfo = contentInfo;
 
 
@@ -607,21 +607,21 @@ function form() {
 
 
 
-//    // document outliner options
-//    var input = document.getElementById("editor");
-//    var output = document.getElementById("output");
-//
-//    if(window.FileReader) {
-//        var reader = new FileReader();
-//        reader.onload = function() {
-//            input.value = reader.result;
-//        };
-//        document.getElementById("file_input").addEventListener("change", function(event) {
-//            reader.readAsText(event.target.files[0]);
-//        }, false);
-//    } else {
-//        document.getElementById("file_input").disabled = true;
-//    }
+    // document outliner options
+    var input = document.getElementById("editor");
+    var output = document.getElementById("output");
+
+    if(window.FileReader) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            input.value = reader.result;
+        };
+        document.getElementById("file_input").addEventListener("change", function(event) {
+            reader.readAsText(event.target.files[0]);
+        }, false);
+    } else {
+        document.getElementById("file_input").disabled = true;
+    }
 //
 //    document.getElementById("output_options").addEventListener("change", function(event) {
 //        switch(event.target.id) {
