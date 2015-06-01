@@ -287,7 +287,7 @@
         <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
     </div>
         <button id="save" onclick="exportNote()">export</button>
-    <button onclick="localStorage.clear()">clear</button>
+    <button onclick="burnFrankenstein()">clear</button>
     <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
     <hr />
@@ -501,6 +501,11 @@ if (localStorage) {
     // No support. Use a fallback such as browser cookies or store on the server.
 }
 
+function burnFrankenstein() {
+    document.getElementById('editor').value = "";
+    localStorage.clear()
+
+}
 function banner() {
 
     var banner = '<header role="banner">\n\t<h1>Banner</h1>\n</header>';
