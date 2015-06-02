@@ -98,7 +98,7 @@
             height: auto;
             box-shadow: rgba(0,0,0,.1) 0 1px 2px;
             margin-left: 0;
-            resize: none;
+            resize: vertical;
         }
 
         #preview {
@@ -271,7 +271,7 @@
 <body>
 <header>
     <h1>
-        Layout Editor
+        Sawss
     </h1>
     <p>
          Semantic Aware Style Sheets (sawss)
@@ -293,8 +293,12 @@
     <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
     <hr />
-
     <article>
+        <h1>
+            Layout editor
+        </h1>
+
+        <hr />
         <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="left">
             <h1>
              <i class="fa fa-file"></i> HTML5
@@ -321,8 +325,8 @@
                 <div id="output" data-numbering="1">
                 </div>
 
-            <hr />
 
+<hr />
             <p>
                 WAI-ARIA landmark roles<br />
                 <small>Scaffolding: high level positioning of content</small>
@@ -338,30 +342,14 @@
                 <!--<button type="button" class="sawss-btn" onclick="form()">Form</button>-->
 </nav>
             <p>
-                Grid<br />
-                <small>Blocks: low level positioning of content</small>
-            </p>
-            <p>
                 WAI-ARIA widget roles<br />
                 <small>Design patterns: templating of content</small>
             </p>
-            <nav am-layout="horizontal">
-            <button type="button" class="sawss-btn">Dropdown</button>
-            <button type="button" class="sawss-btn">Tab</button>
-            </nav>
-            <p>
-                Orientation: portrait / landscape
-            </p>
-           <p>
-               Resources
-           </p>
             <div id="container">
-                <h2>The oncoming storm</h2>
                 <div id="edit" class="drag-list">
                     <div class="editable" contenteditable="true">
-                        <h1>Editable Heading</h1>
-                        <h2>Editable Subheading</h2>
-                        <p> Highlight text to reveal contextual menu for editing.</p>
+                        <h2>Heading</h2>
+                        <p> Edit text. You can also highlight text to reveal contextual menu for editing.</p>
                         <p>
                             Drag and drop the following blocks to reposition content.
                         </p>
@@ -371,14 +359,6 @@
                     <div draggable="true" class="drag-item">B</div>
                     <div draggable="true" class="drag-item">C</div>
                     <div draggable="true" class="drag-item">D</div>
-                    <div draggable="true" class="drag-item">E</div>
-                    <div draggable="true" class="drag-item">F</div>
-                    <div draggable="true" class="drag-item">G</div>
-                    <div draggable="true" class="drag-item">H</div>
-                    <div draggable="true" class="drag-item">I</div>
-                    <div draggable="true" class="drag-item">J</div>
-                    <div draggable="true" class="drag-item">K</div>
-                    <div draggable="true" class="drag-item">L</div>
                 </div>
 
                 <div id="update"></div>
@@ -391,15 +371,19 @@
 
 
 
-        <section style="background-color: #313335;" am-padding am-margin="top large">
-            <Header am-padding>
+        <section style="background-color: #313335;" am-padding am-margin="top">
+            <Header am-padding am-margin="bottom">
                 <h1><i class="fa fa-file-code-o"></i> <span id="filename"></span></h1>
 
-                    <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+
 
             </header>
-            <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
-            <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="position: absolute; right: 0; top: -2.5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
+            <nav am-layout="left-align" am-margin="bottom" style="background-color:#313335 !important;">
+                <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+            </nav>
+
+            <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: 5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
+            <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="position: absolute; right: 0; top: 5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
           <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
