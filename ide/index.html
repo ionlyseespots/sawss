@@ -11,7 +11,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, minimal-ui">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Ambient -->
-    <link rel="stylesheet" href="../less/ambient.css">
+    <link rel="stylesheet" href="../less/sawss.css">
 
     <!-- Medium Editor -->
     <link rel="stylesheet" href="../assets/css/themes/default.css" id="medium-editor-theme">
@@ -35,7 +35,7 @@
             color:#bbb;}
         header {
             background: #3c3f41;
-            box-shadow: rgba(0,0,0,.1) 0 1px 2px;
+
         }
         nav, header, footer {
             background: #3c3f41 !important;
@@ -54,6 +54,7 @@
             transition: all .1s ease-in-out;
             text-shadow: #002b36 0 2px 2px;
             box-shadow: #002b36 0 1px 2px;
+
         }
         nav  button:focus,
         nav  button:hover,
@@ -278,18 +279,8 @@
     </p>
 </header>
 <main am-padding>
+    <hr />
     <nav am-layout="right-align">
-    <!--<button id="zen" onclick="swingPane('editor','preview')">edit</button>-->
-    <!--<button id="view" onclick="swingPane('preview','editor')">view</button>-->
-    <button id="switch" onclick="switchNote()">load</button>
-    <!--<input type="file" id="file_input"/>-->
-    <div class="button--upload">
-        <label for="file_input" class="button--upload__label" style=" font-size: 14px;
-    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
-        <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
-    </div>
-        <button id="save" onclick="exportNote()">export</button>
-    <button onclick="burnFrankenstein()">clear</button>
     <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
     <hr />
@@ -350,8 +341,8 @@
             <div id="container">
                 <div id="edit" class="drag-list">
                     <div class="editable" contenteditable="true">
-                        <h2>Example Heading</h2>
-                        <p> Edit text. You can also highlight text to reveal contextual menu for editing.</p>
+                        <p>Editable text.</p>
+                        <p>You can also highlight text to reveal contextual menu for editing.</p>
                         <p>
                             Drag and drop the following blocks to reposition content.
                         </p>
@@ -377,12 +368,21 @@
             <h4>
                 Edit
             </h4>
-            <nav am-layout="justify-align" am-margin="bottom" style="background-color:#313335 !important;">
-                <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style=" z-index: 999999;"><i class="fa fa-eye"></i></button>
-                <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="z-index: 999999;"><i class="fa fa-eye"></i></button>
+            <nav am-layout="horizontal" am-margin="bottom" style="background-color:#313335 !important;">
+                <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
+                <button id="switch" onclick="switchNote()">load</button>
+                <!--<input type="file" id="file_input"/>-->
+                <div class="button--upload">
+                    <label for="file_input" class="button--upload__label" style=" font-size: 14px;
+    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
+                    <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
+                </div>
+                <button id="save" onclick="exportNote()">export</button>
+                <button onclick="burnFrankenstein()">clear</button>
+                <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
             </nav>
             <Header am-padding am-margin="bottom">
-                <h4><i class="fa fa-file-code-o"></i> <span id="filename"></span></h4>
+                <h5 style="margin-bottom: 0;"><i class="fa fa-file-code-o"></i> <span id="filename"></span></h5>
 
 
 
