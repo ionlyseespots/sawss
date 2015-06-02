@@ -1,0 +1,12 @@
+a[am-layout~="split-bottom"],
+button[am-layout~="split-bottom"] {
+  bottom: -45px;
+  position: absolute;
+  right: 25px;
+}
+a[am-layout~="split-top"],
+button[am-layout~="split-top"] {
+  top: -25px;
+  position: absolute;
+  right: 25px;
+}
