@@ -671,7 +671,7 @@ function form() {
     var editorPane = document.getElementById('editor'),
             previewPane = document.getElementById('preview'),
             downloadLink = document.getElementById('download'),
-            CSS = '<link rel="stylesheet" href="../less/ambient.css">',
+            CSS = '<link rel="stylesheet" href="../less/sawss.css">',
             fileName = '';
 
     function saveEdits() {
@@ -700,7 +700,7 @@ function form() {
 
     function template() {
 
-        var doctors = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+        var doctors = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h3>Aside</h3>\n</aside>\n<main role="main">\n\t<h2>Hello, world!</h2>\n</main>\n<aside role="complementary">\n\t<h4>Aside</h4>\n</aside>\n<footer role="contentinfo">\n\t<h5>Footer</h5>\n</footer>';
         localStorage.holyGrail = doctors;
 
 
