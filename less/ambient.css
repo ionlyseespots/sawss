@@ -711,7 +711,6 @@ div[role~="tab"] {
 }
 div[role~="tab"] a {
   flex-basis: auto;
-  background-color: black;
   min-width: 44px;
   text-align: center;
 }
