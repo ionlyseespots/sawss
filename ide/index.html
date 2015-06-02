@@ -277,7 +277,7 @@
          Semantic Aware Style Sheets (sawss)
     </p>
 </header>
-<main>
+<main am-padding>
     <nav am-layout="right-align">
     <!--<button id="zen" onclick="swingPane('editor','preview')">edit</button>-->
     <!--<button id="view" onclick="swingPane('preview','editor')">view</button>-->
@@ -293,21 +293,23 @@
     <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
     <hr />
-    <article>
-        <h1>
-            Layout editor
-        </h1>
-
+    <article >
+        <h2>
+             HTML5 Layout editor
+        </h2>
+        <nav am-layout="left-align">
+            <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+        </nav>
         <hr />
-        <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="left">
-            <h1>
-             <i class="fa fa-file"></i> HTML5
-            </h1>
+        <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="right">
+            <h3>
+                <i class="fa fa-file"></i> Document Outline
+            </h3>
 
             <!--<button onclick="outline();">Generate Outline</button>-->
 
                 <p style="margin: 0;">
-                    Document Outline
+
                 </p>
                 <!--<div class="options" id="output_options" am-padding="right">-->
                     <!--<select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">-->
@@ -348,7 +350,7 @@
             <div id="container">
                 <div id="edit" class="drag-list">
                     <div class="editable" contenteditable="true">
-                        <h2>Heading</h2>
+                        <h2>Example Heading</h2>
                         <p> Edit text. You can also highlight text to reveal contextual menu for editing.</p>
                         <p>
                             Drag and drop the following blocks to reposition content.
@@ -372,18 +374,22 @@
 
 
         <section style="background-color: #313335;" am-padding am-margin="top">
+            <h4>
+                Edit
+            </h4>
+            <nav am-layout="justify-align" am-margin="bottom" style="background-color:#313335 !important;">
+                <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style=" z-index: 999999;"><i class="fa fa-eye"></i></button>
+                <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="z-index: 999999;"><i class="fa fa-eye"></i></button>
+            </nav>
             <Header am-padding am-margin="bottom">
-                <h1><i class="fa fa-file-code-o"></i> <span id="filename"></span></h1>
+                <h4><i class="fa fa-file-code-o"></i> <span id="filename"></span></h4>
 
 
 
             </header>
-            <nav am-layout="left-align" am-margin="bottom" style="background-color:#313335 !important;">
-                <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
-            </nav>
 
-            <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" style="position: absolute; left: 0;  top: 5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
-            <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn" style="position: absolute; right: 0; top: 5em;z-index: 999999;"><i class="fa fa-eye"></i></button>
+
+
           <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
