@@ -43,7 +43,7 @@
         nav button, nav .button--upload, .sawss-btn {
             outline: none;
             text-align: center;
-            align-self: center;
+
             min-height: 20px;
             margin: 5px 0 !important;
             padding: 0 !important;
@@ -276,7 +276,7 @@
     <script src="../assets/js/HTMLParser.js"></script>
     <script src="../assets/js/frontend.js"></script>
 </head>
-<body>
+<body style=" height: initial;">
 <header am-padding>
     <h1>
         Sawss
@@ -296,7 +296,9 @@
              <i class="fa fa-html5"></i> HTML5 Layout editor
         </h2>
         <nav am-layout="left-align">
-            <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
+            <button type="button" class="sawss-btn" onclick="template()">Holy Grail</button>
+            <button type="button" class="sawss-btn" onclick="">Portrait</button>
+            <button type="button" class="sawss-btn" onclick="">Landscape</button>
         </nav>
         <hr />
         <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="right">
@@ -400,15 +402,18 @@
                     <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
                 </div>
                 <button id="save" onclick="exportNote()">export</button>
-                <button onclick="burnFrankenstein()">clear</button>
+                <button onclick="burnFrankenstein()">delete</button>
 
             </nav>
             <nav am-layout="justify-align" am-margin="bottom" style="background-color:#313335 !important;">
                 <span>
                         <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
+                     <button id="zen" onclick="burnEditor()" class="sawss-btn" ><i class="fa fa-remove"></i></button>
                 </span>
 
 <span>
+    <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-mobile"></i></button>
+        <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-desktop"></i></button>
      <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
 </span>
 
@@ -531,9 +536,21 @@ if (localStorage) {
 
 function burnFrankenstein() {
     document.getElementById('editor').value = "";
-    localStorage.clear()
+    var frame = document.getElementById("preview"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+    frameDoc.documentElement.innerHTML = "";
+    localStorage.clear();
 
 }
+
+function burnEditor() {
+    document.getElementById('editor').value = "";
+    var frame = document.getElementById("preview"),
+            frameDoc = frame.contentDocument || frame.contentWindow.document;
+    frameDoc.documentElement.innerHTML = "";
+}
+
+
 function banner() {
 
     var banner = '<header role="banner">\n\t<h1>Banner</h1>\n</header>';
