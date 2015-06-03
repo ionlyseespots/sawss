@@ -264,29 +264,36 @@
        .medium-editor-toolbar,  .medium-editor-toolbar-actions  {
     width: auto;
 }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            text-overflow: '';
+        }
     </style>
     <script src="../assets/js/HTMLOutliner.js"></script>
     <script src="../assets/js/HTMLParser.js"></script>
     <script src="../assets/js/frontend.js"></script>
 </head>
 <body>
-<header>
+<header am-padding>
     <h1>
         Sawss
     </h1>
-    <p>
-         Semantic Aware Style Sheets (sawss)
+    <p style="margin-bottom: 0;">
+        Semantic Aware Style Sheets (sawss)
     </p>
 </header>
-<main am-padding>
-    <hr />
+<main am-padding style="padding-top: 0;">
+
     <nav am-layout="right-align">
     <a class="sawss-btn" href="../index.html">Help</a>
 </nav>
     <hr />
     <article >
         <h2>
-             HTML5 Layout editor
+             <i class="fa fa-html5"></i> HTML5 Layout editor
         </h2>
         <nav am-layout="left-align">
             <button type="button" class="sawss-btn" onclick="template()"/>Holy Grail</button>
@@ -302,24 +309,29 @@
                 <p style="margin: 0;">
 
                 </p>
-                <!--<div class="options" id="output_options" am-padding="right">-->
-                    <!--<select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">-->
-                        <!--<option value="0">None</option>-->
-                        <!--<option value="1" selected="">simple</option>-->
-                        <!--<option value="2">complex</option>-->
-                    <!--</select>-->
+                <div class="options" id="output_options" am-padding="right">
+                    <select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">
+                        <option value="0">None</option>
+                        <option value="1" selected="">simple</option>
+                        <option value="2">complex</option>
+                    </select>
 
-                <!--&lt;!&ndash;<div class="sawss-btn" style="padding: 0;">&ndash;&gt;-->
-                     <!--&lt;!&ndash;<input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;">elements</label>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <div class="sawss-btn" style="padding: 0; max-width: 50px;">
+        <input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;"><i class="fa fa-code"></i></label>
+    </div>
 
-                <!--</div>-->
+
+
+                </div>
 
                 <div id="output" data-numbering="1">
                 </div>
 
 
 <hr />
+            <h3>
+                Project
+            </h3>
             <p>
                 WAI-ARIA landmark roles<br />
                 <small>Scaffolding: high level positioning of content</small>
@@ -352,6 +364,10 @@
                     <div draggable="true" class="drag-item">B</div>
                     <div draggable="true" class="drag-item">C</div>
                     <div draggable="true" class="drag-item">D</div>
+                    <div draggable="true" class="drag-item">E</div>
+                    <div draggable="true" class="drag-item">F</div>
+                    <div draggable="true" class="drag-item">H</div>
+                    <div draggable="true" class="drag-item">I</div>
                 </div>
 
                 <div id="update"></div>
@@ -368,25 +384,36 @@
             <h4>
                 Edit
             </h4>
-            <nav am-layout="horizontal" am-margin="bottom" style="background-color:#313335 !important;">
-                <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
-                <button id="switch" onclick="switchNote()">load</button>
-                <!--<input type="file" id="file_input"/>-->
-                <div class="button--upload">
-                    <label for="file_input" class="button--upload__label" style=" font-size: 14px;
-    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
-                    <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
-                </div>
-                <button id="save" onclick="exportNote()">export</button>
-                <button onclick="burnFrankenstein()">clear</button>
-                <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
-            </nav>
             <Header am-padding am-margin="bottom">
                 <h5 style="margin-bottom: 0;"><i class="fa fa-file-code-o"></i> <span id="filename"></span></h5>
 
 
 
             </header>
+            <nav am-layout="horizontal" am-margin="bottom" style="background-color:#313335 !important;">
+
+                <button id="switch" onclick="switchNote()">load</button>
+                <!--<input type="file" id="file_input"/>-->
+                <div class="button--upload" style="flex: 1 0 8.3333%;">
+                    <label for="file_input" class="button--upload__label" style=" font-size: 14px;
+    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
+                    <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
+                </div>
+                <button id="save" onclick="exportNote()">export</button>
+                <button onclick="burnFrankenstein()">clear</button>
+
+            </nav>
+            <nav am-layout="justify-align" am-margin="bottom" style="background-color:#313335 !important;">
+                <span>
+                        <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
+                </span>
+
+<span>
+     <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
+</span>
+
+            </nav>
+
 
 
 
@@ -652,20 +679,20 @@ function form() {
     } else {
         document.getElementById("file_input").disabled = true;
     }
-//
-//    document.getElementById("output_options").addEventListener("change", function(event) {
-//        switch(event.target.id) {
-//            case "show_elements":
-//                output.classList.toggle("show_elements");
-//                break;
-//            case "show_roots":
-//                output.classList.toggle("show_roots");
-//                break;
-//            case "numbering":
-//                output.setAttribute("data-numbering", event.target.value);
-//                break;
-//        }
-//    }, false);
+
+    document.getElementById("output_options").addEventListener("change", function(event) {
+        switch(event.target.id) {
+            case "show_elements":
+                output.classList.toggle("show_elements");
+                break;
+            case "show_roots":
+                output.classList.toggle("show_roots");
+                break;
+            case "numbering":
+                output.setAttribute("data-numbering", event.target.value);
+                break;
+        }
+    }, false);
 
 
     var editorPane = document.getElementById('editor'),
