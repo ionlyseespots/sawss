@@ -10,8 +10,6 @@
     <meta name="apple-mobile-web-app-title" content="Frankenstein">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, minimal-ui">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Ambient -->
-    <link rel="stylesheet" href="../less/sawss.css">
 
     <!-- Medium Editor -->
     <link rel="stylesheet" href="../assets/css/themes/default.css" id="medium-editor-theme">
@@ -20,280 +18,30 @@
     <script src="../assets/js/medium-editor.js"></script>
     <script src="../assets/js/medium-editor-tables.js"></script>
 
-    <style type="text/css">
-        html {
-            font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'Helvetica Neue', 'Segoe UI', 'Myriad Pro', Helvetica, Myriad, Arial, sans-serif;
-        }
-        body {
-            color: #bbb;
-            background: #3C3F41 !important;
-        }
-        html {
-            font-size: .85em; }
+    <!-- Sawss -->
+    <link rel="stylesheet" href="../less/sawss.css">
 
-        h1, h2, h3, h4, h5, h6 {
-            color:#bbb;}
-        header {
-            background: #3c3f41;
-
-        }
-        nav, header, footer {
-            background: #3c3f41 !important;
-        }
-        nav button, nav .button--upload, .sawss-btn {
-            outline: none;
-            text-align: center;
-
-            min-height: 20px;
-            margin: 5px 0 !important;
-            padding: 0 !important;
-            border: 1px solid #586e75 !important;
-            color: #586e75;
-            cursor: pointer;
-            background: transparent;
-            transition: all .1s ease-in-out;
-            text-shadow: #002b36 0 2px 2px;
-            box-shadow: #002b36 0 1px 2px;
-
-        }
-        nav  button:focus,
-        nav  button:hover,
-        nav .button--upload:hover,
-        .sawss-btn
-        {
-            border-color: #839496;
-            color: #839496;
-        }
-        .sawss-btn {
-            padding: 0 1em !important;
-        }
-        nav  button:active {
-            border-color: #93a1a1;
-            color: #93a1a1;
-        }
-        nav  button + button {
-            margin-left: 10px;
-        }
-        #editor,
-        #preview {
-            width: 49.25%;
-            /*float: left;*/
-            margin: 0 .75% 0 .75%;
-            border-radius: 2px;
-            transition: all .2s ease-in-out;
-            -webkit-appearance: none;
-            z-index: 500;
-        }
-        #editor {
-            outline: none;
-            transition: background-color .1s ease-in-out;
-            font-family: 'Source Code Pro', Menlo, Consolas, monospace;
-            color: #839496;
-            background: #2b2b2b;
-            outline: none;
-            border: none;
-            padding: 15px;
-            font-size: 12pt;
-            line-height: 1.2;
-            font-weight: 300;
-            height: auto;
-            box-shadow: rgba(0,0,0,.1) 0 1px 2px;
-            margin-left: 0;
-            resize: vertical;
-        }
-
-        #preview {
-            background: #fff;
-            opacity: 0.3;
-            transition: opacity .1s ease-in-out;
-            outline: none;
-            appearance: none;
-            border: none;
-            box-shadow: rgba(0,0,0,.1) 0 1px 2px;
-            margin-right: 0;
-        }
-        #preview:hover,
-        #preview:focus {
-            opacity: 1;
-            cursor: default;
-        }
-        footer {
-            background: #073642;
-            box-shadow: rgba(0,0,0,.1) 0 -1px 2px;
-        }
-        footer .download {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        }
-        @media (max-width: 481px) {
-            header #brand {
-                font-size: 10pt;
-            }
-            header #brand strong {
-                display: none;
-            }
-        }
-
-
-        ol {
-            padding-left: 25px;
-        }
-
-        #output > ol {
-            padding-left: 0;
-        }
-
-        ol.outline {
-            list-style-type: none;
-        }
-
-        ol.outline.shadow {
-            border-left: 1px solid gray;
-            margin: 2px;
-            padding-left: 10px;
-        }
-
-        span.sec_number {
-            display: inline;
-            font-weight: bold;
-            padding-right: 1ex;
-        }
-
-        span.sec_prefix {
-            display: none;
-        }
-
-        #output[data-numbering="0"] span.sec_number {
-            display: none;
-        }
-
-        #output[data-numbering="2"] span.sec_prefix {
-            display: inline;
-        }
-
-        li.root {
-            display: none;
-        }
-
-        #output.show_roots li.root {
-            display: block;
-        }
-
-        li.root > span {
-            color: gray;
-            font-variant: small-caps;
-        }
-
-        span.no_title {
-            font-style: italic;
-        }
-
-        span.details {
-            display: none;
-            color: gray;
-            padding-left: 1ex;
-        }
-
-        #output.show_elements span.details {
-            display: inline;
-        }
-
-
-
-
-        .button--upload {
-
-            flex: 0 1 8.3333%;
-            position: relative;
-        }
-        .button--upload__file {
-            bottom: 0;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            visibility: hidden;
-            width: 0;
-        }
-        [draggable] {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .drag-list {
-            overflow: hidden;
-            margin: 10px auto;
-            width: 500px;
-            border: 1px solid #ccc;
-        }
-        .drag-item {
-            float: left;
-            padding: 50px 20px;
-            width: 25%;
-            text-align: center;
-            color: #555;
-            background: #ddd;
-            border: 1px solid #ccc;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            -webkit-transition: 0.25s;
-            -moz-transition: 0.25s;
-            -o-transition: 0.25s;
-            -ms-transition: 0.25s;
-            transition: 0.25s;
-        }
-        .drag-start {
-            opacity: 0.8;
-            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-            filter: alpha(opacity=80);
-        }
-        .drag-enter {
-            opacity: 0.5;
-            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-            filter: alpha(opacity=50);
-            -webkit-transform: scale(0.9);
-            -moz-transform: scale(0.9);
-            -o-transform: scale(0.9);
-            -ms-transform: scale(0.9);
-            transform: scale(0.9);
-        }
-       .medium-editor-toolbar,  .medium-editor-toolbar-actions  {
-    width: auto;
-}
-
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            text-indent: 1px;
-            text-overflow: '';
-        }
-    </style>
-    <script src="../assets/js/HTMLOutliner.js"></script>
-    <script src="../assets/js/HTMLParser.js"></script>
-    <script src="../assets/js/frontend.js"></script>
+    <!-- Web app site styles -->
+    <link rel="stylesheet" href="../assets/css/layoutEditor.css">
 </head>
-<body style=" height: initial;">
+<body>
 <header am-padding>
     <h1>
         Sawss
     </h1>
-    <p style="margin-bottom: 0;">
-        Semantic Aware Style Sheets (sawss)
+    <p>
+        Semantic Aware Style Sheet (sawss)
     </p>
 </header>
-<main am-padding style="padding-top: 0;">
-
+<main am-padding>
     <nav am-layout="right-align">
-    <a class="sawss-btn" href="../index.html">Help</a>
-</nav>
+        <a class="sawss-btn" href="../index.html">Help</a>
+    </nav>
     <hr />
+
     <article >
         <h2>
-             <i class="fa fa-html5"></i> HTML5 Layout editor
+            <i class="fa fa-html5"></i> HTML5 Layout editor
         </h2>
         <nav am-layout="left-align">
             <button type="button" class="sawss-btn" onclick="template()">Holy Grail</button>
@@ -301,36 +49,24 @@
             <button type="button" class="sawss-btn" onclick="">Landscape</button>
         </nav>
         <hr />
-        <aside style="background-color: #3c3f41;flex-basis: 30%;" am-padding="right">
+
+        <aside am-padding="right">
             <h3>
                 <i class="fa fa-file"></i> Document Outline
             </h3>
-
-            <!--<button onclick="outline();">Generate Outline</button>-->
-
-                <p style="margin: 0;">
-
-                </p>
-                <div class="options" id="output_options" am-padding="right">
-                    <select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">
-                        <option value="0">None</option>
-                        <option value="1" selected="">simple</option>
-                        <option value="2">complex</option>
-                    </select>
-
-    <div class="sawss-btn" style="padding: 0; max-width: 50px;">
-        <input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;"><i class="fa fa-code"></i></label>
-    </div>
-
-
-
+            <div class="options" id="output_options" am-padding="right">
+                <select id="numbering" class="sawss-btn" style="width: 100%; text-align: left;">
+                    <option value="0">None</option>
+                    <option value="1" selected="">simple</option>
+                    <option value="2">complex</option>
+                </select>
+                <div class="sawss-btn" style="padding: 0; max-width: 50px;">
+                    <input id="show_elements" type="checkbox" style="display: none;" /><label for="show_elements" style="padding: 0;margin: 0;"><i class="fa fa-code"></i></label>
                 </div>
+            </div>
+            <div id="output" data-numbering="1"></div>
+            <hr />
 
-                <div id="output" data-numbering="1">
-                </div>
-
-
-<hr />
             <h3>
                 Project
             </h3>
@@ -338,7 +74,7 @@
                 WAI-ARIA landmark roles<br />
                 <small>Scaffolding: high level positioning of content</small>
             </p>
-<nav am-layout="horizontal">
+            <nav am-layout="horizontal">
                 <button type="button" class="sawss-btn" onclick="banner()">Banner</button>
                 <button type="button" class="sawss-btn" onclick="navigation()">Navigation</button>
                 <button type="button" class="sawss-btn" onclick="article()">Article</button>
@@ -347,7 +83,7 @@
                 <button type="button" class="sawss-btn" onclick="contentInfo()">Contentinfo</button>
                 <!--<button type="button" class="sawss-btn" onclick="search()">Search</button>-->
                 <!--<button type="button" class="sawss-btn" onclick="form()">Form</button>-->
-</nav>
+            </nav>
             <p>
                 WAI-ARIA widget roles<br />
                 <small>Design patterns: templating of content</small>
@@ -357,11 +93,8 @@
                     <div class="editable" contenteditable="true">
                         <p>Editable text.</p>
                         <p>You can also highlight text to reveal contextual menu for editing.</p>
-                        <p>
-                            Drag and drop the following blocks to reposition content.
-                        </p>
+                        <p>Drag and drop the following blocks to reposition content.</p>
                     </div>
-
                     <div draggable="true" class="drag-item">A</div>
                     <div draggable="true" class="drag-item">B</div>
                     <div draggable="true" class="drag-item">C</div>
@@ -371,151 +104,52 @@
                     <div draggable="true" class="drag-item">H</div>
                     <div draggable="true" class="drag-item">I</div>
                 </div>
-
                 <div id="update"></div>
                 <input type="button" value="save my edits" class="sawss-btn" onclick="saveEdits()"/>
-
             </div>
-
-
         </aside>
-
-
-
-        <section style="background-color: #313335;" am-padding am-margin="top">
+        <section am-padding>
             <h4>
                 Edit
             </h4>
-            <Header am-padding am-margin="bottom">
-                <h5 style="margin-bottom: 0;"><i class="fa fa-file-code-o"></i> <span id="filename"></span></h5>
-
-
-
+            <Header am-padding>
+                <h5>
+                    <i class="fa fa-file-code-o"></i> <span id="filename"></span>
+                </h5>
             </header>
-            <nav am-layout="horizontal" am-margin="bottom" style="background-color:#313335 !important;">
-
+            <nav am-layout="horizontal">
                 <button id="switch" onclick="switchNote()">load</button>
-                <!--<input type="file" id="file_input"/>-->
-                <div class="button--upload" style="flex: 1 0 8.3333%;">
-                    <label for="file_input" class="button--upload__label" style=" font-size: 14px;
-    font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;">import</label>
+                <div class="button--upload">
+                    <label for="file_input" class="button--upload__label">import</label>
                     <input type="file" id="file_input" name="upload-file" class="button--upload__file" accept=".html,.css, .txt">
                 </div>
                 <button id="save" onclick="exportNote()">export</button>
                 <button onclick="burnFrankenstein()">delete</button>
-
             </nav>
-            <nav am-layout="justify-align" am-margin="bottom" style="background-color:#313335 !important;">
+            <nav am-layout="justify-align">
                 <span>
-                        <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
-                     <button id="zen" onclick="burnEditor()" class="sawss-btn" ><i class="fa fa-remove"></i></button>
+                    <button id="zen" onclick="swingPane('editor','preview')" class="sawss-btn" ><i class="fa fa-eye"></i></button>
+                    <button id="zen" onclick="burnEditor()" class="sawss-btn" ><i class="fa fa-remove"></i></button>
                 </span>
-
-<span>
-    <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-mobile"></i></button>
-        <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-desktop"></i></button>
-     <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
-</span>
-
+                <span>
+                    <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-mobile"></i></button>
+                    <button id="zen" onclick="" class="sawss-btn" ><i class="fa fa-desktop"></i></button>
+                    <button id="view" onclick="swingPane('preview','editor')" class="sawss-btn"><i class="fa fa-eye"></i></button>
+                </span>
             </nav>
+            <hr />
 
-
-
-
-          <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
+            <textarea id="editor" placeholder="HTML/CSS" autofocus></textarea>
             <iframe id="preview"></iframe>
             <input id="url_input" type="hidden" value=""/>
         </section>
-        <script>
-            function DragNSort(config) {
-                this.$activeItem = null;
-                this.$container = config.container;
-                this.$items = this.$container.querySelectorAll('.' + config.itemClass);
-                this.dragStartClass = config.dragStartClass;
-                this.dragEnterClass = config.dragEnterClass;
-            }
-            DragNSort.prototype.removeClasses = function () {
-                [].forEach.call(this.$items, function ($item) {
-                    $item.classList.remove(this.dragStartClass, this.dragEnterClass);
-                }.bind(this));
-            };
-            DragNSort.prototype.on = function (elements, eventType, handler) {
-                [].forEach.call(elements, function (element) {
-                    element.addEventListener(eventType, handler.bind(element, this), false);
-                }.bind(this));
-            };
-            DragNSort.prototype.onDragStart = function (_this, event) {
-                _this.$activeItem = this;
-                this.classList.add(_this.dragStartClass);
-                event.dataTransfer.effectAllowed = 'move';
-                event.dataTransfer.setData('text/html', this.innerHTML);
-            };
-            DragNSort.prototype.onDragEnd = function (_this) {
-                this.classList.remove(_this.dragStartClass);
-            };
-            DragNSort.prototype.onDragEnter = function (_this) {
-                this.classList.add(_this.dragEnterClass);
-            };
-            DragNSort.prototype.onDragLeave = function (_this) {
-                this.classList.remove(_this.dragEnterClass);
-            };
-            DragNSort.prototype.onDragOver = function (_this, event) {
-                if (event.preventDefault) {
-                    event.preventDefault();
-                }
-                event.dataTransfer.dropEffect = 'move';
-                return false;
-            };
-            DragNSort.prototype.onDrop = function (_this, event) {
-                if (event.stopPropagation) {
-                    event.stopPropagation();
-                }
-                if (_this.$activeItem !== this) {
-                    _this.$activeItem.innerHTML = this.innerHTML;
-                    this.innerHTML = event.dataTransfer.getData('text/html');
-                }
-                _this.removeClasses();
-                return false;
-            };
-            DragNSort.prototype.bind = function () {
-                this.on(this.$items, 'dragstart', this.onDragStart);
-                this.on(this.$items, 'dragend', this.onDragEnd);
-                this.on(this.$items, 'dragover', this.onDragOver);
-                this.on(this.$items, 'dragenter', this.onDragEnter);
-                this.on(this.$items, 'dragleave', this.onDragLeave);
-                this.on(this.$items, 'drop', this.onDrop);
-            };
-            DragNSort.prototype.init = function () {
-                this.bind();
-            };
-            var draggable = new DragNSort({
-                container: document.querySelector('.drag-list'),
-                itemClass: 'drag-item',
-                dragStartClass: 'drag-start',
-                dragEnterClass: 'drag-enter'
-            });
-            draggable.init();
-
-
-
-
-        </script>
     </article>
-
-
-
-
-
-
 </main>
-
-
-<footer style="height: 50px;">
-    <a id="download" download="export.html"></a></footer>
-
+<footer>
+    <a id="download" download="export.html"></a>
+</footer>
 <script type="text/javascript">
-
-//var editor = new MediumEditor('.editable');
+// medium editor
 var editor = new MediumEditor('.editable', {
     buttonLabels: 'fontawesome',
     buttons: [
@@ -527,228 +161,62 @@ var editor = new MediumEditor('.editable', {
     }
 });
 
+// document outliner
+var input = document.getElementById("editor");
+var output = document.getElementById("output");
 
+if(window.FileReader) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        input.value = reader.result;
+    };
+    document.getElementById("file_input").addEventListener("change", function(event) {
+        reader.readAsText(event.target.files[0]);
+    }, false);
+} else {
+    document.getElementById("file_input").disabled = true;
+}
+
+document.getElementById("output_options").addEventListener("change", function(event) {
+    switch(event.target.id) {
+        case "show_elements":
+            output.classList.toggle("show_elements");
+            break;
+        case "show_roots":
+            output.classList.toggle("show_roots");
+            break;
+        case "numbering":
+            output.setAttribute("data-numbering", event.target.value);
+            break;
+    }
+}, false);
+
+// check for local storage snippet
 if (localStorage) {
     // LocalStorage is supported!
 } else {
     // No support. Use a fallback such as browser cookies or store on the server.
 }
 
-function burnFrankenstein() {
-    document.getElementById('editor').value = "";
-    var frame = document.getElementById("preview"),
-            frameDoc = frame.contentDocument || frame.contentWindow.document;
-    frameDoc.documentElement.innerHTML = "";
-    localStorage.clear();
-
-}
-
-function burnEditor() {
-    document.getElementById('editor').value = "";
-    var frame = document.getElementById("preview"),
-            frameDoc = frame.contentDocument || frame.contentWindow.document;
-    frameDoc.documentElement.innerHTML = "";
-}
-
-
-function banner() {
-
-    var banner = '<header role="banner">\n\t<h1>Banner</h1>\n</header>';
-    localStorage.banner = banner;
-
-
-// later that evening…
-
-    fileName = 'banner';
-    if(fileName == null || fileName == '') { fileName = 'banner'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function navigation() {
-
-    var navigation = '<nav role="navigation">\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n</nav>';
-    localStorage.navigation = navigation;
-
-
-// later that evening…
-
-    fileName = 'navigation';
-    if(fileName == null || fileName == '') { fileName = 'navigation'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-
-function article() {
-
-    var article = '<article>\n\t<h1>Article</h1>\n</article>';
-    localStorage.article = article;
-
-
-// later that evening…
-
-    fileName = 'article';
-    if(fileName == null || fileName == '') { fileName = 'article'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function region() {
-
-    var region = '<section role="region">\n\t<h1>Header</h1>\n</section>';
-    localStorage.region = region;
-
-
-// later that evening…
-
-    fileName = 'region';
-    if(fileName == null || fileName == '') { fileName = 'region'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function complementary() {
-
-    var complementary = '<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>';
-    localStorage.complementary = complementary;
-
-
-// later that evening…
-
-    fileName = 'complementary';
-    if(fileName == null || fileName == '') { fileName = 'complementary'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function contentInfo() {
-
-    var contentInfo = '<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
-    localStorage.contentinfo = contentInfo;
-
-
-// later that evening…
-
-    fileName = 'contentinfo';
-    if(fileName == null || fileName == '') { fileName = 'contentInfo'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function search() {
-
-    var search = 'under construction';
-    localStorage.search = search;
-
-
-// later that evening…
-
-    fileName = 'search';
-    if(fileName == null || fileName == '') { fileName = 'search'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-function form() {
-
-    var form = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<main role="main">\n\t<h1>Hello, world!</h1>\n</main>\n<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>\n<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
-    localStorage.form = form;
-
-
-// later that evening…
-
-    fileName = 'form';
-    if(fileName == null || fileName == '') { fileName = 'form'; editorPane.value = localStorage[fileName] }
-    if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-    if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-    document.getElementById('filename').innerHTML = fileName + '.html';
-    refreshView();
-}
-
-
-
-
-
-
-
-
-
-    // document outliner options
-    var input = document.getElementById("editor");
-    var output = document.getElementById("output");
-
-    if(window.FileReader) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            input.value = reader.result;
-        };
-        document.getElementById("file_input").addEventListener("change", function(event) {
-            reader.readAsText(event.target.files[0]);
-        }, false);
-    } else {
-        document.getElementById("file_input").disabled = true;
+// local storage functions
+    function burnFrankenstein() {
+        document.getElementById('editor').value = "";
+        var frame = document.getElementById("preview"),
+                frameDoc = frame.contentDocument || frame.contentWindow.document;
+        frameDoc.documentElement.innerHTML = "";
+        localStorage.clear();
+    }
+    function burnEditor() {
+        document.getElementById('editor').value = "";
+        var frame = document.getElementById("preview"),
+                frameDoc = frame.contentDocument || frame.contentWindow.document;
+        frameDoc.documentElement.innerHTML = "";
     }
 
-    document.getElementById("output_options").addEventListener("change", function(event) {
-        switch(event.target.id) {
-            case "show_elements":
-                output.classList.toggle("show_elements");
-                break;
-            case "show_roots":
-                output.classList.toggle("show_roots");
-                break;
-            case "numbering":
-                output.setAttribute("data-numbering", event.target.value);
-                break;
-        }
-    }, false);
-
-
-    var editorPane = document.getElementById('editor'),
-            previewPane = document.getElementById('preview'),
-            downloadLink = document.getElementById('download'),
-            CSS = '<link rel="stylesheet" href="../less/sawss.css">',
-            fileName = '';
-
-    function saveEdits() {
-
-//get the editable element
-        var editElem = document.getElementById("edit");
-
-//get the edited element content
-        var userVersion = editElem.innerHTML;
-
-//save the content to local storage
-        localStorage.userEdits = userVersion;
-        fileName = 'userEdits';
-        if(fileName == null || fileName == '') { fileName = 'userEdits'; editorPane.value = localStorage[fileName] }
-        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
-        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
-        document.getElementById('filename').innerHTML = fileName + '.html';
-
-        refreshView();
-
-
-//write a confirmation to the user
-        document.getElementById("update").innerHTML="Edits saved!";
-    }
-
-
+// master template functions:: local storage key/value for HTML5 + roles
     function template() {
-
         var doctors = '<header role="banner">\n\t<h1>Header</h1>\n</header>\n<aside role="complementary">\n\t<h3>Aside</h3>\n</aside>\n<main role="main">\n\t<h2>Hello, world!</h2>\n</main>\n<aside role="complementary">\n\t<h4>Aside</h4>\n</aside>\n<footer role="contentinfo">\n\t<h5>Footer</h5>\n</footer>';
         localStorage.holyGrail = doctors;
-
-
-// later that evening…
 
         fileName = 'holyGrail';
         if(fileName == null || fileName == '') { fileName = 'holyGrail'; editorPane.value = localStorage[fileName] }
@@ -758,11 +226,106 @@ function form() {
         refreshView();
     }
 
+// role template functions:: local storage key/value for HTML5 + roles
+    function banner() {
+        var banner = '<header role="banner">\n\t<h1>Banner</h1>\n</header>';
+        localStorage.banner = banner;
 
-    // Editor Interactions
+        fileName = 'banner';
+        if(fileName == null || fileName == '') { fileName = 'banner'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+    function navigation() {
+        var navigation = '<nav role="navigation">\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n\t<a href="">Link</a>\n</nav>';
+        localStorage.navigation = navigation;
+
+        fileName = 'navigation';
+        if(fileName == null || fileName == '') { fileName = 'navigation'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+    function article() {
+        var article = '<article>\n\t<h1>Article</h1>\n</article>';
+        localStorage.article = article;
+
+        fileName = 'article';
+        if(fileName == null || fileName == '') { fileName = 'article'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+    function region() {
+        var region = '<section role="region">\n\t<h1>Header</h1>\n</section>';
+        localStorage.region = region;
+
+        fileName = 'region';
+        if(fileName == null || fileName == '') { fileName = 'region'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+    function complementary() {
+        var complementary = '<aside role="complementary">\n\t<h1>Aside</h1>\n</aside>';
+        localStorage.complementary = complementary;
+
+        fileName = 'complementary';
+        if(fileName == null || fileName == '') { fileName = 'complementary'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+    function contentInfo() {
+        var contentInfo = '<footer role="contentinfo">\n\t<h1>Footer</h1>\n</footer>';
+        localStorage.contentinfo = contentInfo;
+
+        fileName = 'contentinfo';
+        if(fileName == null || fileName == '') { fileName = 'contentInfo'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+    }
+
+// layout editor
+var editorPane = document.getElementById('editor'),
+    previewPane = document.getElementById('preview'),
+    downloadLink = document.getElementById('download'),
+    CSS = '<link rel="stylesheet" href="../less/sawss.css">',
+    fileName = '';
+
+// widget role functions
+    function saveEdits() {
+        //get the editable element
+        var editElem = document.getElementById("edit");
+
+        //get the edited element content
+        var userVersion = editElem.innerHTML;
+
+        //save the content to local storage
+        localStorage.userEdits = userVersion;
+        fileName = 'userEdits';
+        if(fileName == null || fileName == '') { fileName = 'userEdits'; editorPane.value = localStorage[fileName] }
+        if(localStorage[fileName] != ''){ editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
+        refreshView();
+
+        // write a confirmation to the user
+        document.getElementById("update").innerHTML="Edits saved!";
+    }
+
+// layout editor interactions
     onload = editorPane.onkeyup = function() {
         refreshView();
-        if(fileName == ''){ switchNote() };
+        if(fileName == ''){ switchNote() }
         localStorage[fileName] = editorPane.value;
         document.body.id = 'tapZap';
         tapZap();
@@ -778,9 +341,9 @@ function form() {
             softTab('  '); // tabs set at 2 spaces
             event.preventDefault();
         }
-    }
+    };
 
-    // Editor Functions
+// layout editor functions
     function refreshView() {
         editorPane.style.height = (window.innerHeight - 250) + 'px';
         previewPane.style.height = (window.innerHeight - 250) + 'px';
@@ -808,7 +371,7 @@ function form() {
             editorPane.value += textArea.value;
             editorPane.focus();
         }
-    };
+    }
     function switchNote() {
         fileName = prompt('Feed My Frankenstein.\n\nTo begin a Frankenstein:\nPress \'Enter\' or select \'Cancel\'\n\nTo Create a New Frankenstein:\nEnter the name of your Frankenstein and select \'OK\'\n\nTo Open a Saved Frankenstein:\nEnter the name of the saved Frankenstein below and select \'OK\'\n\nSaved Frankensteins in This Browser:\n' + Object.keys(localStorage).join(", "), '');
         if(fileName == null || fileName == '') { fileName = 'Frankenstein'; editorPane.value = localStorage[fileName] }
@@ -818,7 +381,7 @@ function form() {
         document.getElementById('filename').innerHTML = fileName + '.html';
         document.title = 'Sawss: ' + fileName;
         refreshView();
-    };
+    }
     function swingPane(reveal, conceal) {
         var revealPane = document.getElementById(reveal),
                 concealPane = document.getElementById(conceal);
@@ -830,22 +393,21 @@ function form() {
             revealPane.setAttribute('style', 'width: 49.25%;');
         }
         refreshView();
-    };
+    }
     function exportNote() {
         downloadLink.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(editorPane.value);
         downloadLink.setAttribute('download', fileName + '.html');
         downloadLink.click();
-    };
+    }
 
-    // http://ariatemplates.com/blog/2014/05/ghost-clicks-in-mobile-browsers/
-
-    // tapZap eliminates the 300ms standard delay added afer `touchstart` for mobile users, for quicker user interactions
+// found this good to know:: http://ariatemplates.com/blog/2014/05/ghost-clicks-in-mobile-browsers/
+// tapZap eliminates the 300ms standard delay added afer `touchstart` for mobile users, for quicker user interactions
     function tapZap(element, handler) {
         this.element = element;
         this.handler = handler;
         element.addEventListener('touchstart', this, false);
         element.addEventListener('click', this, false);
-    };
+    }
     tapZap.prototype.handleEvent = function(event) {
         switch (event.type) {
             case 'touchstart': this.onTouchStart(event); break;
@@ -883,10 +445,10 @@ function form() {
     function preventGhostClick(x, y) {
         coordinates.push(x, y);
         window.setTimeout(ghostPop, 2500);
-    };
+    }
     function ghostPop() {
         coordinates.splice(0, 2);
-    };
+    }
     function ghostClick(event) {
         for (var i = 0; i < coordinates.length; i += 2) {
             var x = coordinates[i];
@@ -896,7 +458,7 @@ function form() {
                 event.preventDefault();
             }
         }
-    };
+    }
     document.addEventListener('click', ghostClick.onClick, true);
     var coordinates = [];
     function initTapZap() {
@@ -908,9 +470,15 @@ function form() {
         var theEvent = document.createEvent('MouseEvents');
         theEvent.initEvent('click', true, true);
         theTarget.dispatchEvent(theEvent);
-    };
+    }
 </script>
 
+<!-- Outliner -->
+<script src="../assets/js/HTMLOutliner.js"></script>
+<script src="../assets/js/HTMLParser.js"></script>
+<script src="../assets/js/frontend.js"></script>
 
+<!-- dragNdrop -->
+<script src="../assets/js/dragNdrop.js"></script>
 </body>
 </html>
