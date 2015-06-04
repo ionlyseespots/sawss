@@ -8,8 +8,11 @@
   "authors": [
     "Ken Buras <@ionlyseespots>"
   ],
-  "description": "Sawss is semantic aware style sheets",
-  "main": "dist/css/*",
+  "description": "Sawss is a semantic aware style sheet",
+  "main": [
+      "dist/css/*",
+      "less/*"
+  ],
   "keywords": [
     "html5",
     "css3",
