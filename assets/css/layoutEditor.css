@@ -223,12 +223,6 @@ span.details {
     width: auto;
 }
 
-/* possible bugs in Ambient that came up in designing the layout editor */
-Body {
-    height: initial;
-}
-
-
 /* drag and drop */
 [draggable] {
     -webkit-user-select: none;
