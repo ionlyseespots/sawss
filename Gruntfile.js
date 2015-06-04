@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -36,25 +36,25 @@ module.exports = function(grunt) {
 				dest: '<%= build_dir %>/css/<%= pkg.name %>.css'
 			}
 		},
-		autoprefixer: {
-			options: {
-				browsers: ['> 1%', 'last 2 versions', 'Safari 7'],
-				cascade: true,
-				remove: true,
-				diff: false,
-				map: false,
-				silent: false
-			},
-			single_file: {
-				src: '<%= concat.build_css.dest %>',
-				dest: '<%= concat.build_css.dest %>'
-			}
+		postcss: {
+            options: {
+                processors: require('autoprefixer-core')({browsers: ['> 1%', 'last 2 versions', 'Safari 7']}),
+                map: false,
+                cascade: true,
+                remove: true,
+                diff: false,
+                silent: false
+            },
+            single_file: {
+                src: '<%= concat.build_css.dest %>',
+                dest: '<%= concat.build_css.dest %>'
+            }
 		},
 		cssmin: {
 			target: {
 				files: [{
 					expand:true,
-					src: '<%= autoprefixer.single_file.dest %>',
+					src: '<%= postcss.single_file.dest %>',
 					ext: '.min.css'
 				}]
 			}
@@ -64,6 +64,6 @@ module.exports = function(grunt) {
 	grunt.initConfig( grunt.util._.extend( userConfig, taskConfig ) );
 
 	grunt.registerTask( 'build', [
-		'clean', 'concat:build_css', 'autoprefixer', 'cssmin'
+		'clean', 'concat:build_css', 'postcss', 'cssmin'
 	]);
 };
