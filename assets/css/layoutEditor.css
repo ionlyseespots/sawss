@@ -7,7 +7,6 @@ body {
 }
 html {
     font-size: .85em; }
-
 h1, h2, h3, h4, h5, h6 {
     color:#bbb;}
 header {
@@ -28,10 +27,10 @@ nav, header, footer {
 section nav {
     background-color:#313335 !important;
 }
-nav button, nav .button--upload, .sawss-btn {
+nav button, .button--upload, .sawss-btn {
     outline: none;
     text-align: center;
-
+    font-size: 12px !important;
     min-height: 20px;
     margin: 5px 0 !important;
     padding: 0 !important;
@@ -54,12 +53,29 @@ nav .button--upload:hover,
     padding: 0 1em !important;
 
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {*/
     /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */
-    .sawss-btn {
-        min-width: 130px; /* help flexbox bug where wrapping and min-width collide in webkit */
+    /*.sawss-btn {*/
+        /*min-width: 130px; *//* help flexbox bug where wrapping and min-width collide in webkit */
+    /*}*/
+/*}*/
+
+
+
+/* potential bugs that are in layout methodology and style over rides*/
+aside {
+    min-width: 20%;
+}
+/* close potential bugs */
+
+
+
+@media (max-width: 30em){
+    .button--upload, #save {
+        display: none;
     }
 }
+
 
 nav  button:active {
     border-color: #93a1a1;
@@ -103,7 +119,7 @@ footer .download {
 }
 
 .button--upload__label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;   text-align: center; display: inline-block; width: 100%; height: 100%;
 }
 
