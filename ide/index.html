@@ -335,7 +335,11 @@ var editorPane = document.getElementById('editor'),
 // layout editor interactions
     onload = editorPane.onkeyup = function() {
         refreshView();
-        if(fileName == ''){ switchNote() }
+        // instead of prompt on load I would lean more towards simply loading the default Frankenstein
+        //        if(fileName == ''){ switchNote() }
+        if(fileName == null || fileName == '') { fileName = 'Frankenstein'; editorPane.value = localStorage[fileName] }
+        if(editorPane.value == 'undefined'){ editorPane.value = ''; }
+        document.getElementById('filename').innerHTML = fileName + '.html';
         localStorage[fileName] = editorPane.value;
         document.body.id = 'tapZap';
         tapZap();
@@ -348,7 +352,7 @@ var editorPane = document.getElementById('editor'),
     };
     editorPane.onkeydown = function(event) {
         if(event.keyCode === 9) {
-            softTab('  '); // tabs set at 2 spaces
+            softTab('    '); // tabs set at 4 spaces
             event.preventDefault();
         }
     };
