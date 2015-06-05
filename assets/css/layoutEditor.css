@@ -66,6 +66,10 @@ nav .button--upload:hover,
 aside {
     min-width: 20%;
 }
+/*nav a, nav button*/
+/*{*/
+/*flex-basis: auto !important;min-width: 8.333% !important*/
+/*}*/
 /* close potential bugs */
 
 

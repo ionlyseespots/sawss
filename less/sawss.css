@@ -457,7 +457,8 @@ nav[am-layout] a,
 nav[am-layout] form,
 nav[am-layout] button,
 nav[am-layout] div[role="dropdown"] {
-  flex: 0 1 8.3333%;
+  flex: 0 1 auto;
+  min-width: 8.3333%;
 }
 nav[am-layout] form {
   width: auto;
@@ -466,7 +467,8 @@ nav[am-layout][am-layout~="horizontal"] a,
 nav[am-layout][am-layout~="horizontal"] form,
 nav[am-layout][am-layout~="horizontal"] button,
 nav[am-layout][am-layout~="horizontal"] div[role="dropdown"] {
-  flex: 1 0 8.3333%;
+  flex: 1 0 auto;
+  min-width: 8.3333%;
 }
 nav[am-layout][am-layout~="justify-align"] {
   justify-content: space-between;

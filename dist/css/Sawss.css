@@ -941,9 +941,10 @@ nav[am-layout] form,
 nav[am-layout] button,
 nav[am-layout] div[role="dropdown"] {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 1 8.3333%;
-      -ms-flex: 0 1 8.3333%;
-          flex: 0 1 8.3333%;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  min-width: 8.3333%;
 }
 nav[am-layout] form {
   width: auto;
@@ -953,9 +954,10 @@ nav[am-layout][am-layout~="horizontal"] form,
 nav[am-layout][am-layout~="horizontal"] button,
 nav[am-layout][am-layout~="horizontal"] div[role="dropdown"] {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 8.3333%;
-      -ms-flex: 1 0 8.3333%;
-          flex: 1 0 8.3333%;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  min-width: 8.3333%;
 }
 nav[am-layout][am-layout~="justify-align"] {
   -webkit-box-pack: justify;

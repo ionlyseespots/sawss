@@ -3,7 +3,8 @@ nav[@{am-layout-var}] {
   form,
   button,
   div[role="dropdown"] {
-    flex: 0 1 @am-flex-width1;
+    flex: 0 1 auto;
+    min-width: @am-flex-width1;
   }
   form {
     width: auto;
@@ -13,7 +14,8 @@ nav[@{am-layout-var}] {
     form,
     button,
     div[role="dropdown"] {
-      flex: 1 0 @am-flex-width1;
+      flex: 1 0 auto;
+      min-width: @am-flex-width1;
     }
   }
   // -default to horizontal
