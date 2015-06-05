@@ -11,14 +11,14 @@ Sawss is an extension of CSS3, adding contextual rules, variables, mixins, selec
 
 You'll want to fork/clone the Sawss repo first and install all the dependencies. You can do this using the following commands:
 
-* bower install
+You will need `bower` and `npm`
+
 * bower install sawss
-* npm install
 * npm install -g grunt-cli bower
 * npm install grunt-postcss --save-dev
 * npm install grunt-postcss autoprefixer-core csswring
 
-Run a `less` watch to compile a `sawss.css` file
+Run a `less` watch to compile the `sawss.css` file
 
 Then just run `grunt build` and the `/dist` files will be generated from the compiled `sawss.css` file.  
 
