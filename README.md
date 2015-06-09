@@ -1,5 +1,7 @@
 # Sawss
-## **S**emantic **aw**are **s**tyle **s**heet
+## **S**emantic **aw**are **s**tyle **s**
+
+SAWSS and Sawss editor is a personal project.
 
 Sawss is an intuitive front-end framework for HTML5 development.
 
